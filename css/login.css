@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.form-container {
+  background: #ecf0f3;
+  font-family: "Nunito", sans-serif;
+  margin-top: 30px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+}
+.form-container .form-icon {
+  color: #ac40ab;
+  font-size: 55px;
+  text-align: center;
+  line-height: 100px;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 15px;
+  border-radius: 50px;
+  box-shadow: 7px 7px 10px #cbced1, -7px -7px 10px #fff;
+}
+.form-container .title {
+  color: #ac40ab;
+  font-size: 25px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  margin: 0 0 20px;
+}
+.form-container .form-horizontal .form-group {
+  margin: 0 0 25px 0;
+}
+.form-container .form-horizontal .form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.form-container .form-horizontal .form-control {
+  color: #333;
+  background: #ecf0f3;
+  font-size: 15px;
+  height: 50px;
+  padding: 20px;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+}
+.form-container .form-horizontal .form-control:focus {
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px #fff;
+  outline: none;
+}
+.form-container .form-horizontal .form-control::placeholder {
+  color: #808080;
+  font-size: 14px;
+}
+.form-container .form-horizontal .btn {
+  color: #000;
+  background-color: #ac40ab;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 100%;
+  padding: 12px 15px 11px;
+  border-radius: 20px;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px #fff;
+  border: none;
+  transition: all 0.5s ease 0s;
+}
+.form-container .form-horizontal .btn:hover,
+.form-container .form-horizontal .btn:focus {
+  color: #fff;
+  letter-spacing: 3px;
+  box-shadow: none;
+  outline: none;
+}
+
+#withg {
+  margin-top: 20px;
+}
+
+/* ------------------------------ */
+
+/* Add this in your CSS file or in a <style> tag in your HTML */
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1;
+}
+
+.popup-content {
+  background-color: #fff;
+  width: 300px;
+  max-width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* ------------------------- */
+
+@media screen and (max-width: 768px) {
+  .form-container {
+    background: #ecf0f3;
+    font-family: "Nunito", sans-serif;
+    margin-top: 70px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 14px 14px 20px #cbced1, -14px -14px 20px white;
+  }
+}
