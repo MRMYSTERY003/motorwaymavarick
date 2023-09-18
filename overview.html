@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motoway Maverics</title>
+    <link rel="stylesheet" href="./css/overview.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
+        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/> -->
+        <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+
+</head>
+<body>
+
+    <div class="top-nav">
+        <h2>Overview</h2>
+        <div class="user">
+            <div class="user-logo"><img src="./lib/user.png" alt=""></div>
+            <div class="user-info">
+                <p>Mystery</p>
+                <p><span>Manager</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="left-nav">
+        <div class="sidebar">
+            <div class="product-info"> 
+                <p>Motorway Mavarics</p>
+            </div>
+            <ul>
+
+            <li><a href="overview.html">OVERVIEW</a></li>
+            <li><a id = "realtime-tag" href="realtime.html">REALTIME</a></li>
+            <li><a href="#">JOBS</a></li>
+
+              <li><a id = "vechicle-tag" href="vechicles.html">VEHICLES</a></li>
+              <li><a href="#">MAINTAINANCE</a></li>
+
+            </ul>
+          </div>
+    </div>
+
+    <div class="content">
+
+        <div class="overview-info">
+            <div class="vehicle-count">
+                <div class="vehicle-count-head">
+                    <span id = 'total-vechicle'>43</span>
+                    <h4>Total number vechicle</h4>
+                </div>
+                <div class="vechicle-info-icon">
+                    <i class="fa-solid fa-truck fa-fade fa-2xl"></i>
+                </div>
+            </div>
+            <div class="vehicle-count">
+                <div class="vehicle-count-head">
+                    <span id = 'online-vechicle'>43</span>
+                    <h4>Vechicle Online</h4>
+                </div>
+                <div class="vechicle-info-icon">
+                    <i class="fa-solid fa-bolt fa-fade fa-2xl"></i>
+                </div>
+            </div>
+            <div class="vehicle-count">
+                <div class="vehicle-count-head">
+                    <span id = 'offline-vechicle'>43</span>
+                    <h4>Vechicle Offline</h4>
+                </div>
+                <div class="vechicle-info-icon">
+                    <i class="fa-solid fa-circle-xmark fa-fade fa-2xl"></i>
+                </div>
+            </div>
+            <div class="vehicle-count">
+                <div class="vehicle-count-head">
+                    <span id = 'problem-vechicle'>43</span>
+                    <h4>Vechicles with Problems</h4>
+                </div>
+                <div class="vechicle-info-icon">
+                    <i class="fa-solid fa-triangle-exclamation fa-bounce fa-2xl"></i>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="content-head">
+            <div class="vehicle-list-cont">
+                <div class="vechicle-list-head">
+                    <h4> Vehicle List</h4>
+                    <img src="./lib/car-icon.png" alt="" srcset="">
+                </div>
+                <div class="vehicle-list" id ="vehicle-list">
+                    <!-- <ul>
+                        <li><div class="list-info">
+                            <h4>TN 11 Z5060</h4>
+                            <h4>onilne</h4>
+                        </div></li>
+                        <li><div class="list-info">
+                            <h4>TN 11 Z5060</h4>
+                            <h4>onilne</h4>
+                        </div></li>
+                    </ul> -->
+                </div>
+            </div>
+            <div class="map-container">     
+                <div class="map-head">
+                    <h4>VEHICLE LOCATIONS</h4>
+                    <!-- <img src="./lib/map-icon.png" alt=""> -->
+                </div>       
+                <div class="map-cont">
+                    <div class="map" id = "mymap"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+    
+    
+    <script type="module" src="./js/overview.js"></script>
+</body>
+</html>

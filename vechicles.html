@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/vechicles.css">
+
+    <title>Motoway Maverics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
+        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/> -->
+        <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+</head>
+<body>
+
+    <div class="top-nav">
+        <h2>Overview</h2>
+        <div class="user">
+            <div class="user-logo"><img src="./lib/user.png" alt=""></div>
+            <div class="user-info">
+                <p>Mystery</p>
+                <p><span>Manager</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="left-nav">
+        <div class="sidebar">
+            <div class="product-info"> 
+                <p>Motorway Mavarics</p>
+                
+            </div>
+            <div class="back-btn">
+                <a href="overview.html">
+                    <div class="back-btn-warp">
+                        <h4>BACK</h4>
+                        <div class="back-icon">
+                            <i class="fa-solid fa-angle-right fa-flip-horizontal" style="color: #f9fafa;"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="vechicle-head">
+                <h4>VECHICLES</h4>
+            </div>
+            <div id = "vechicle-List" class="vechicle-list">
+                <ul>
+                    <!-- <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li>
+                    <li>TN 22 S 1234</li> -->
+    
+                </ul>
+            </div>
+          </div>
+    </div>
+
+    <div class="content">
+        <div class="first-layer">
+            <div class="vechicle-info">
+                <div class="vechicle-atter">
+                    <p>ID</p>
+                    <P id = "vechicle-id">TN 11 Z 5060</P>
+                </div>
+                <div class="vechicle-atter">
+                    <p>Status</p>
+                    <p id = "status">Online</p>
+                </div>
+                <div class="vechicle-atter">
+                    <p>Job</p>
+                    <p id = "job-id">Load Drop</p>
+                </div>
+                <div class="vechicle-atter">
+                    <p>Driver</p>
+                    <p id = "driver">Vijayendran</p>
+                </div>
+            </div>
+    
+            <div class="vechicle-performance">
+                <div class="vechicle-atter">
+                    <p>Fuel</p>
+                    <P id = "fuel">60%</P>
+                </div>
+                <div class="vechicle-atter">
+                    <p>Speed</p>
+                    <p id = "speed-val">40 Km/Hr</p>
+                </div>
+                <div class="vechicle-atter">
+                    <p>Performance</p>
+                    <p id = "Performance">Good</p>
+                </div>
+                <div class="vechicle-atter">
+                    <p>Maintainance</p>
+                    <p id = "Maintainance">Not Required</p>
+                </div>
+            </div>
+    
+            <div class="vechicle-performance">
+                <div class="vechicle-atter">
+                    <p>Fuel Consuption</p>
+                    <P id = "fuel-consum">50%</P>
+                </div>
+                <div class="vechicle-atter">
+                    <p>Economy</p>
+                    <p id = "economy">--</p>
+                </div>
+                <div class="vechicle-atter">
+                    <p>cost</p>
+                    <p id = "cost">--</p>
+                </div>
+
+            </div>
+        </div>
+
+        <br>
+        
+        <div class="second-layer">
+
+
+                <div class="card">
+                    <div class="card-speed">
+                        <canvas id="speed"></canvas>
+                    </div>
+                    <div class="card-content">
+                        <p>VEHICEL SPEED</p>
+                    </div>
+                </div>
+                <div class="vechicle-stats">
+                    <div class="box">
+                        <div class="info">
+                            <div class="info-left">
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-temperature-three-quarters fa-fade fa-2xl"></i>
+                                </div>
+                                
+                                <div>
+                                    Coolent Temperature
+                                </div>
+                            </div>
+                            <div class="info-right">
+                                <div class="value" id="coolant-temp-val">26°C</div>
+                            </div>
+                        </div>
+                        </div>
+                    <div class="box">                        
+                        <div class="info">
+                            <div class="info-left">
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-car-battery fa-fade fa-2xl"></i>
+                                </div>
+
+                                <div>
+                                    Battery Voltage
+                                </div>
+                            </div>
+                            <div class="info-right">
+                                <div class="value" id="Battery-voltage">12V</div>
+                            </div>
+                        </div>
+                        </div>
+                    <div class="box">
+                        <div class="info">
+                            <div class="info-left">
+                                <div class="info-icon">
+                                    <i class="fa-regular fa-clock fa-fade fa-2xl"></i>
+                                </div>
+
+                                <div>
+                                    Run Time
+                                </div>
+                            </div>
+                            <div class="info-right">
+                                <div class="value" id = "runtime">2Hr</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <a id = "more" href="realtime.html">
+                        
+                        <div class="info">
+                            <div class="info-left">
+                                <div class="info-icon">
+                                    <i class="fa-solid fa-ellipsis fa-2xl"></i>
+                                </div>
+
+                                <div>
+                                    More Info   
+                                </div>
+                            </div>
+
+                        </div>
+                    </a>
+                    </div>
+                </div>
+
+            <div class="map"  id="mymap"  class="card"> </div>
+        </div>
+
+
+    </div>
+    <script type="module" src="./js/vechicles.js"></script>
+    <script src="./js/gauge.min.js"></script>
+
+</body>
+</html>
