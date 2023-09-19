@@ -20,7 +20,7 @@ signin.addEventListener("click", function() {
       const user = userCredential.user;
       console.log(user);
       if(user) {
-          window.location = 'index.html'; //After successful login, user will be redirected to home.html
+          window.location = 'overview.html'; //After successful login, user will be redirected to home.html
         }
       // ...
       console.log("Success! Account created.");
