@@ -24,19 +24,20 @@ function parsedata(data, keys){
     var temp = {}
     var loc_temp = {};
     temp["number"] = keys[i];
-    temp["status"] = data[keys[i]]["STATUS"];
-    loc_temp["lat"] = data[keys[i]]["GPS"]["LAT"];
-    loc_temp["long"] = data[keys[i]]["GPS"]["LONG"];
+    console.log(keys)
+    temp["status"] = data["VECHICLES"][keys[i]]["STATUS"];
+    loc_temp["lat"] = data["VECHICLES"][keys[i]]["GPS"]["LAT"];
+    loc_temp["long"] = data["VECHICLES"][keys[i]]["GPS"]["LONG"];
     list.push(temp);
     loc.push(loc_temp);
 
 
-    if (data[keys[i]]["STATUS"].toLowerCase() == "offline"){
+    if (data["VECHICLES"][keys[i]]["STATUS"].toLowerCase() == "offline"){
       offline += 1;
     }else{
       online += 1;
     }
-    if(data[keys[i]]["INFO"]["MAINTAINANCE"].toLowerCase() == "No Need"){
+    if(data["VECHICLES"][keys[i]]["INFO"]["MAINTAINANCE"].toLowerCase() == "No Need"){
         prop_c += 1;
     }
   }
@@ -80,7 +81,7 @@ function update_list(data){
 onValue(ref(database, '/'), (snapshot) => {
   const data = snapshot.val();
   console.log(data)
-  const keys = Object.keys(data);
+  const keys = Object.keys(data["VECHICLES"]);
   link.href = "realtime.html?id="+ keys[0];
   link2.href = "vechicles.html?id="+ keys[0];
 

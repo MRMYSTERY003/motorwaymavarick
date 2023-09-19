@@ -47,7 +47,7 @@ signwithgoogle.addEventListener('click',function(){
         const user = result.user;
         console.log(user);
         if(user) {
-            window.location = 'index.html'; //After successful login, user will be redirected to home.html
+            window.location = 'overview.html'; //After successful login, user will be redirected to home.html
             signin.removeEventListener('click');
           }
         // ...

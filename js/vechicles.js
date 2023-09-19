@@ -72,24 +72,24 @@ var speed = new RadialGauge({
 }).draw();
 
 function parsedata(data){
-    console.log(data[url_id])
-    vechicle_id.innerText = data[url_id]["INFO"]["ID "]
-    status.innerText = data[url_id]["STATUS"]   
-    job.innerText = data[url_id]["INFO"]["JOB"]
-    driver.innerText = data[url_id]["INFO"]["DRIVER"]
-    fuel.innerText = data[url_id]["FUEL_LEVEL"] + "%"
-    Performance.innerText = data[url_id]["INFO"]["PERFORMANCE"]
-    Maintainance.innerText = data[url_id]["INFO"]["MAINTAINANCE"] 
-    economy.innerText = data[url_id]["INFO"]["ECONOMY"] 
-    cost.innerText = data[url_id]["INFO"]["COST"] 
-    speed_val.innerText = data[url_id]["SPEED"] + "Km/H"
-    speed.value = data[url_id]["SPEED"];
-    coolant_temp.innerText = data[url_id]["COOLANT_TEMPERATURE"] + "°C";
-    battery_vlotage.innerText = data[url_id]["BATTERY_VOLTAGE"] +"V";
-    runtime.innerText = data[url_id]["RUN_TIME"] + "Hr";
+    console.log(data["VECHICLES"][url_id])
+    vechicle_id.innerText = data["VECHICLES"][url_id]["INFO"]["ID "]
+    status.innerText = data["VECHICLES"][url_id]["STATUS"]   
+    job.innerText = data["VECHICLES"][url_id]["INFO"]["JOB"]
+    driver.innerText = data["VECHICLES"][url_id]["INFO"]["DRIVER"]
+    fuel.innerText = data["VECHICLES"][url_id]["FUEL_LEVEL"] + "%"
+    Performance.innerText = data["VECHICLES"][url_id]["INFO"]["PERFORMANCE"]
+    Maintainance.innerText = data["VECHICLES"][url_id]["INFO"]["MAINTAINANCE"] 
+    economy.innerText = data["VECHICLES"][url_id]["INFO"]["ECONOMY"] 
+    cost.innerText = data["VECHICLES"][url_id]["INFO"]["COST"] 
+    speed_val.innerText = data["VECHICLES"][url_id]["SPEED"] + "Km/H"
+    speed.value = data["VECHICLES"][url_id]["SPEED"];
+    coolant_temp.innerText = data["VECHICLES"][url_id]["COOLANT_TEMPERATURE"] + "°C";
+    battery_vlotage.innerText = data["VECHICLES"][url_id]["BATTERY_VOLTAGE"] +"V";
+    runtime.innerText = data["VECHICLES"][url_id]["RUN_TIME"] + "Hr";
 
-   map.set(data[url_id]["GPS"]["LAT"], data[url_id]["GPS"]["LONG"])
-   map.locate(data[url_id]["GPS"]["LAT"], data[url_id]["GPS"]["LONG"], 18)
+   map.set(data["VECHICLES"][url_id]["GPS"]["LAT"], data["VECHICLES"][url_id]["GPS"]["LONG"])
+   map.locate(data["VECHICLES"][url_id]["GPS"]["LAT"], data["VECHICLES"][url_id]["GPS"]["LONG"], 18)
 
   
   }
@@ -123,7 +123,7 @@ function parsedata(data){
 onValue(ref(database, '/'), (snapshot) => {
     const data = snapshot.val();
     console.log(data)
-    const keys = Object.keys(data);
+    const keys = Object.keys(data["VECHICLES"]);
     console.log(link)
     // link.href = "realtime.html?id="+ keys[0];
     // link2.href = "vechicles.html?id="+ keys[0];
