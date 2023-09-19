@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/jobs.css">
+
+    <title>Motorway Maverics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+
+        <!-- Leaflet CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
+        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/> -->
+        <!-- Leaflet JS -->
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+</head>
+<body>
+
+    <div class="top-nav">
+        <h2>MAINTAINANCE</h2>
+        <div class="user">
+            <div class="user-logo"><img src="./lib/user.png" alt=""></div>
+            <div class="user-info">
+                <p>Sriram</p>
+                <p><span>Manager</span></p>
+            </div>
+        </div>
+    </div>
+    <div class="left-nav">
+        <div class="sidebar">
+            <div class="product-info"> 
+                <p>Motorway Mavarics</p>
+            </div>
+            <ul>
+
+                <li><a href="overview.html">OVERVIEW</a></li>
+                <li><a id = "realtime-tag" href="realtime.html">REALTIME DATA</a></li>
+                <li><a href="appoinments.html">JOBS</a></li>
+    
+                  <li><a id = "vechicle-tag" href="vechicles.html">VEHICLES</a></li>
+                  <li><a href="jobs.html">MAINTAINANCE</a></li>
+
+            </ul>
+          </div>
+    </div>
+
+    <div class="content">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Event Name</th>
+                        <th>Result</th>
+                        <th>Time</th>
+                        <th>Cost</th>
+                        <th>Driver</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Engine Check</td>
+                        <td>Passed</td>
+                        <td>2023-09-10 08:30 AM</td>
+                        <td>₹50.00</td>
+                        <td>John Doe</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Oil Change</td>
+                        <td>Completed</td>
+                        <td>2023-09-12 02:15 PM</td>
+                        <td>₹80.00</td>
+                        <td>Jane Smith</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Brake Inspection</td>
+                        <td>Failed</td>
+                        <td>2023-09-14 11:45 AM</td>
+                        <td>₹0.00</td>
+                        <td>Bob Johnson</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="car-list">
+        <!-- Cars and checkboxes will be added here dynamically -->
+    </div>
+    
+</body>
+</html>
