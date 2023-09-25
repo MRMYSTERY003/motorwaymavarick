@@ -6,11 +6,13 @@ body {
   background-color: rgb(235, 223, 215);
   font-family: "Poppins", sans-serif;
   font-weight: 300px;
+  width: max-content;
+
   scrollbar-width: none;
   --ms-overflow-style: none;
 }
 body::-webkit-scrollbar {
-  width: 0.4rem; /* Width of the scrollbar track */
+  width: 0.1rem; /* Width of the scrollbar track */
 }
 
 /* Optional: For Webkit-based browsers like Chrome and Safari */
@@ -180,8 +182,8 @@ span {
 }
 
 .vehicle-list {
-  width: 500px;
-  height: 59vh;
+  width: 30vw;
+  height: 66vh;
 
   /* position: fixed; */
   background: rgba(255, 255, 255, 0.34); /* Transparent white background */
@@ -227,7 +229,7 @@ span {
 
 .map {
   top: 200;
-  width: 700px;
+  width: 40vw;
   height: 385px;
 }
 
@@ -304,7 +306,7 @@ a:-webkit-any-link {
 
 .vehicle-count {
   border-radius: 5px;
-  width: 250px;
+  width: 17vw;
   height: 100px;
   background: rgba(255, 255, 255, 0.34); /* Transparent white background */
   backdrop-filter: blur(10px); /* Background blur effect */
@@ -332,6 +334,7 @@ a:-webkit-any-link {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  margin: 10px;
 }
 .vechicle-info-icon {
   display: flex;
