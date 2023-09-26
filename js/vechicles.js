@@ -1,6 +1,49 @@
 import Map from "./map.js";
 import { onValue, ref, database } from "./fbase.js";
 
+
+function user_info(){
+  
+  var userDataG = localStorage.getItem('MMG-user');
+  var userData = localStorage.getItem('MM-user');
+  var u_name = document.getElementById("name")
+  var u_mail = document.getElementById("mail")
+  
+  if (userData) {
+    var user = JSON.parse(userData);
+    var userG = JSON.parse(userDataG);
+    var usernameg = userG.displayName;
+    var emailg = userG.email;
+  
+    var username = user.displayName;
+    var email = user.email;
+  
+    try{
+      if(username.length != 0 && email.length != 0){
+  
+        u_name.innerText = username;
+        u_mail.innerText = email;
+      }
+    }
+  catch{
+      u_name.innerText = usernameg;
+      u_mail.innerText = emailg;
+    }
+  
+  
+    // Access other user properties as needed
+  } else {
+    // User data not found, handle accordingly (e.g., redirect to login page) 
+  }
+  
+  }
+
+  // user_info();
+
+
+
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const url_id = urlParams.get('id');
 console.log(url_id);
@@ -72,24 +115,24 @@ var speed = new RadialGauge({
 }).draw();
 
 function parsedata(data){
-    console.log(data["VECHICLES"][url_id])
-    vechicle_id.innerText = data["VECHICLES"][url_id]["INFO"]["ID "]
-    status.innerText = data["VECHICLES"][url_id]["STATUS"]   
-    job.innerText = data["VECHICLES"][url_id]["INFO"]["JOB"]
-    driver.innerText = data["VECHICLES"][url_id]["INFO"]["DRIVER"]
-    fuel.innerText = data["VECHICLES"][url_id]["FUEL_LEVEL"] + "%"
-    Performance.innerText = data["VECHICLES"][url_id]["INFO"]["PERFORMANCE"]
-    Maintainance.innerText = data["VECHICLES"][url_id]["INFO"]["MAINTAINANCE"] 
-    economy.innerText = data["VECHICLES"][url_id]["INFO"]["ECONOMY"] 
-    cost.innerText = data["VECHICLES"][url_id]["INFO"]["COST"] 
-    speed_val.innerText = data["VECHICLES"][url_id]["SPEED"] + "Km/H"
-    speed.value = data["VECHICLES"][url_id]["SPEED"];
-    coolant_temp.innerText = data["VECHICLES"][url_id]["COOLANT_TEMPERATURE"] + "°C";
-    battery_vlotage.innerText = data["VECHICLES"][url_id]["BATTERY_VOLTAGE"] +"V";
-    runtime.innerText = data["VECHICLES"][url_id]["RUN_TIME"] + "Hr";
+    console.log(data)
+    vechicle_id.innerText = data["INFO"]["ID "]
+    status.innerText = data["STATUS"]   
+    job.innerText = data["INFO"]["JOB"]
+    driver.innerText = data["INFO"]["DRIVER"]
+    fuel.innerText = data["FUEL_LEVEL"] + "%"
+    Performance.innerText = data["INFO"]["PERFORMANCE"]
+    Maintainance.innerText = data["INFO"]["MAINTAINANCE"] 
+    economy.innerText = data["INFO"]["ECONOMY"] 
+    cost.innerText = data["INFO"]["COST"] 
+    speed_val.innerText = data["SPEED"] + "Km/H"
+    speed.value = data["SPEED"];
+    coolant_temp.innerText = data["COOLANT_TEMPERATURE"] + "°C";
+    battery_vlotage.innerText = data["BATTERY_VOLTAGE"] +"V";
+    runtime.innerText = data["RUN_TIME"] + "Hr";
 
-   map.set(data["VECHICLES"][url_id]["GPS"]["LAT"], data["VECHICLES"][url_id]["GPS"]["LONG"])
-   map.locate(data["VECHICLES"][url_id]["GPS"]["LAT"], data["VECHICLES"][url_id]["GPS"]["LONG"], 18)
+   map.set(data["GPS"]["LAT"], data["GPS"]["LONG"])
+   map.locate(data["GPS"]["LAT"], data["GPS"]["LONG"], 18)
 
   
   }
@@ -119,18 +162,27 @@ function parsedata(data){
   
 
 
+  onValue(ref(database, '/VECHICLES/'), (snapshot) => {
+    const data = snapshot.val();
+    console.log(data);
+    const keys = Object.keys(data);
 
-onValue(ref(database, '/'), (snapshot) => {
+    update_list(keys);
+
+  }, {
+  });
+  
+
+
+
+
+
+onValue(ref(database, '/VECHICLES/'+url_id), (snapshot) => {
     const data = snapshot.val();
     console.log(data)
-    const keys = Object.keys(data["VECHICLES"]);
-    console.log(link)
-    // link.href = "realtime.html?id="+ keys[0];
-    // link2.href = "vechicles.html?id="+ keys[0];
+
     
-
-
-    update_list(keys)
+    // update_list(keys);
     parsedata(data);
 
   

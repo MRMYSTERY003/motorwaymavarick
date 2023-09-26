@@ -13,6 +13,30 @@ var link2 = document.getElementById("vechicle-tag")
 const map = new Map("mymap")
 
 
+function user_info(){
+  
+
+var userData = localStorage.getItem('MM-user');
+var u_mail = document.getElementById("mail")
+
+
+if (userData) {
+  var user = JSON.parse(userData);
+
+  var email = user.email;
+  u_mail.innerText = email;
+
+
+  // Access other user properties as needed
+} else {
+  // User data not found, handle accordingly (e.g., redirect to login page) 
+}
+
+}
+
+user_info();
+
+
 
 function parsedata(data, keys){
   var offline = 0;
@@ -23,6 +47,7 @@ function parsedata(data, keys){
   for(var i = 0; i < keys.length; i++){
     var temp = {}
     var loc_temp = {};
+    try{
     temp["number"] = keys[i];
     console.log(keys)
     temp["status"] = data["VECHICLES"][keys[i]]["STATUS"];
@@ -40,8 +65,11 @@ function parsedata(data, keys){
     if(data["VECHICLES"][keys[i]]["INFO"]["MAINTAINANCE"].toLowerCase() == "No Need"){
         prop_c += 1;
     }
+    console.log(loc);
+  }catch(error){
+    console.log("problem with the vechicle")
   }
-  console.log(loc)
+  }
 
   return {"offline" :offline, "online": online, "problem" : prop_c, "total" : offline + online, "status-list" : list, 'loc' :loc}
 }
@@ -53,6 +81,7 @@ function update_list(data){
   vec_list_cont.innerHTML = "";
   const ul = document.createElement("ul");
   data.forEach((item) => {
+    try{
     const li = document.createElement("li");
     const div = document.createElement("div");
     var anchorElement = document.createElement("a");
@@ -69,6 +98,10 @@ function update_list(data){
     li.appendChild(div);  
     // anchorElement.appendChild(li)
     ul.appendChild(li);
+    }catch (error){
+      console.log(error)
+      console.log("some error with the vechicle id : " + item)
+    }
   });
   
   vec_list_cont.appendChild(ul);

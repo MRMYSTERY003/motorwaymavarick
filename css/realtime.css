@@ -9,14 +9,9 @@ body {
   scrollbar-width: none;
   --ms-overflow-style: none;
 }
-body::-webkit-scrollbar {
-  width: 0.4rem; /* Width of the scrollbar track */
-}
 
-/* Optional: For Webkit-based browsers like Chrome and Safari */
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3); /* Color of the scrollbar thumb */
-  border-radius: 0.25rem; /* Rounded corners of the scrollbar thumb */
+body ::-webkit-scrollbar {
+  width: 0.1rem;
 }
 
 .top-nav {

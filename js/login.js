@@ -9,6 +9,44 @@ const signwithgoogle = document.getElementById("withg");
 
 
 
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+
+//     const uid = user.uid;
+//     console.log(uid);
+//     localStorage.setItem('MM-user', JSON.stringify(user));
+//     // ...
+//   } else {
+//     // User is signed out
+//     // ...
+//     console.log("not logined!")
+//   }
+// });
+
+function storeuser(data, mode){
+  if(mode == 1){
+    localStorage.setItem('MM-user', JSON.stringify(data));
+  }else{
+    localStorage.setItem('MMG-user', JSON.stringify(data));
+  }
+
+}
+
+
+
+// var userData = localStorage.getItem('MM-user');
+// console.log(userData)
+
+// if (userData) {
+//   var user = JSON.parse(userData);
+//   var username = user.displayName;
+//   var email = user.email;
+//   console.log(email)
+//   // Access other user properties as needed
+// } else {
+//   // User data not found, handle accordingly (e.g., redirect to login page)
+// }
+
 
 
 
@@ -18,9 +56,11 @@ signin.addEventListener("click", function() {
       .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      console.log(user);
+
       if(user) {
           window.location = 'overview.html'; //After successful login, user will be redirected to home.html
+          console.log("logedin")
+          storeuser(user, 1);
         }
       // ...
       console.log("Success! Account created.");
@@ -48,15 +88,16 @@ signwithgoogle.addEventListener('click',function(){
         console.log(user);
         if(user) {
             window.location = 'overview.html'; //After successful login, user will be redirected to home.html
-            signin.removeEventListener('click');
+            storeuser(user, 2)
+            console.log("done")
           }
         // ...
       }).catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
+        console.log(errorMessage)
+
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...

@@ -17,6 +17,46 @@ var link2 = document.getElementById("vechicle-tag")
 
 
 
+function user_info(){
+  
+  var userDataG = localStorage.getItem('MMG-user');
+  var userData = localStorage.getItem('MM-user');
+  var u_name = document.getElementById("name")
+  var u_mail = document.getElementById("mail")
+  
+  if (userData) {
+    var user = JSON.parse(userData);
+    var userG = JSON.parse(userDataG);
+    var usernameg = userG.displayName;
+    var emailg = userG.email;
+  
+    var username = user.displayName;
+    var email = user.email;
+  
+    try{
+      if(username.length != 0 && email.length != 0){
+  
+        u_name.innerText = username;
+        u_mail.innerText = email;
+      }
+    }
+  catch{
+      u_name.innerText = usernameg;
+      u_mail.innerText = emailg;
+    }
+  
+  
+    // Access other user properties as needed
+  } else {
+    // User data not found, handle accordingly (e.g., redirect to login page) 
+  }
+  
+  }
+  
+  // user_info();
+
+
+
 
 
 var throttle_options = {
@@ -480,33 +520,33 @@ class update_values{
     }
 
     update(){
-        var imglink = this.data["VECHICLES"][this.id]["INFO"]["IMG"];
+        var imglink = this.data["INFO"]["IMG"];
         this.img.src = imglink;
-        this.model.textContent = this.data["VECHICLES"][this.id]["INFO"]["MODEL"];
-        this.number_plate.textContent = this.data["VECHICLES"][this.id]["INFO"]["ID "];
-        this.driver.textContent = this.data["VECHICLES"][this.id]["INFO"]["DRIVER"];
-        this.status.textContent = this.data["VECHICLES"][this.id]["STATUS"];
-        this.fuel.value = this.data["VECHICLES"][this.id]["FUEL_LEVEL"];
-        this.speed.value = this.data["VECHICLES"][this.id]["SPEED"];
-        this.rpm.innerText = this.data["VECHICLES"][this.id]["RPM"];
-        this.coolant_temp.innerText = this.data["VECHICLES"][this.id]["COOLANT_TEMPERATURE"] + "°C";
-        this.battery.innerText = this.data["VECHICLES"][this.id]["BATTERY_VOLTAGE"] + "V";
-        this.avg_fuel.innerText = this.data["VECHICLES"][this.id]["AVG_FUEL"] + "%";
-        this.run_time.innerText = this.data["VECHICLES"][this.id]["RUN_TIME"] + "Hr";
-        this.barometric_pressure.value =  this.data["VECHICLES"][this.id]["ABSOLULTE_BAROMETRIC_PRESSURE"];
-        this.coolant_temperature.value =  this.data["VECHICLES"][this.id]["COOLANT_TEMPERATURE"];
+        this.model.textContent = this.data["INFO"]["MODEL"];
+        this.number_plate.textContent = this.data["INFO"]["ID "];
+        this.driver.textContent = this.data["INFO"]["DRIVER"];
+        this.status.textContent = this.data["STATUS"];
+        this.fuel.value = this.data["FUEL_LEVEL"];
+        this.speed.value = this.data["SPEED"];
+        this.rpm.innerText = this.data["RPM"];
+        this.coolant_temp.innerText = this.data["COOLANT_TEMPERATURE"] + "°C";
+        this.battery.innerText = this.data["BATTERY_VOLTAGE"] + "V";
+        this.avg_fuel.innerText = this.data["AVG_FUEL"] + "%";
+        this.run_time.innerText = this.data["RUN_TIME"] + "Hr";
+        this.barometric_pressure.value =  this.data["ABSOLULTE_BAROMETRIC_PRESSURE"];
+        this.coolant_temperature.value =  this.data["COOLANT_TEMPERATURE"];
 
-        this.intake_temeperature.value =  this.data["VECHICLES"][this.id]["AIR_INTAKE_TEMPERATURE"];
-        this.rail_gauge_pressure.value =  this.data["VECHICLES"][this.id]["FUEL_RAIL_GAUGE_PRESSURE"];
-        console.log(this.data["VECHICLES"][this.id]["GPS"]["LAT"])
-        console.log(this.data["VECHICLES"][this.id]["GPS"]["LONG"])
-        // var res = this.map.updatelocation({"lat" : this.data["VECHICLES"][this.id]["GPS"]["LAT"], "long" :  this.data["VECHICLES"][this.id]["GPS"]["LAT"]});
-        // this.map.locate(this.data["VECHICLES"][this.id]["GPS"]["LAT"], this.data["VECHICLES"][this.id]["GPS"]["LONG"], 16, res);
-        this.map.setpos(this.data["VECHICLES"][this.id]["GPS"]["LAT"], this.data["VECHICLES"][this.id]["GPS"]["LONG"]);
-        // this.map.locate(this.data["VECHICLES"][this.id]["GPS"]["LAT"], this.data["VECHICLES"][this.id]["GPS"]["LONG"], this.data["VECHICLES"][this.id], 13);
-        update_throttle(this.data["VECHICLES"][this.id]["THROTTLE_POSITION"]);
-        update_air_flow(this.data["VECHICLES"][this.id]["AIR_FLOW_RATE"]);
-        update_acceleration(this.data["VECHICLES"][this.id]["ACC"]['X'],this.data["VECHICLES"][this.id]["ACC"]['Y'],this.data["VECHICLES"][this.id]["ACC"]['Z']);
+        this.intake_temeperature.value =  this.data["AIR_INTAKE_TEMPERATURE"];
+        this.rail_gauge_pressure.value =  this.data["FUEL_RAIL_GAUGE_PRESSURE"];
+        console.log(this.data["GPS"]["LAT"])
+        console.log(this.data["GPS"]["LONG"])
+        // var res = this.map.updatelocation({"lat" : this.data["GPS"]["LAT"], "long" :  this.data["GPS"]["LAT"]});
+        // this.map.locate(this.data["GPS"]["LAT"], this.data["GPS"]["LONG"], 16, res);
+        this.map.setpos(this.data["GPS"]["LAT"], this.data["GPS"]["LONG"]);
+        // this.map.locate(this.data["GPS"]["LAT"], this.data["GPS"]["LONG"], this.data, 13);
+        update_throttle(this.data["THROTTLE_POSITION"]);
+        update_air_flow(this.data["AIR_FLOW_RATE"]);
+        update_acceleration(this.data["ACC"]['X'],this.data["ACC"]['Y'],this.data["ACC"]['Z']);
     }
 }
 
@@ -514,15 +554,19 @@ class update_values{
 
 
 
-onValue(ref(database, '/'), (snapshot) => {
+onValue(ref(database, '/VECHICLES/'+url_id), (snapshot) => {
     const data = snapshot.val();
-    const keys = Object.keys(data["VECHICLES"]);
-    link.href = "realtime.html?id="+ keys[0];
-    link2.href = "vechicles.html?id="+ keys[0];
+    const keys = Object.keys(data);
+    link.href = "realtime.html?id="+ url_id;
+    link2.href = "vechicles.html?id="+ url_id;
 
 
     console.log(data)
+    try{
     const temp = new update_values(url_id, data, fuel, b_pressure, coolant_temperature, intake_temeperature, rail_gauge_pressure, map);
     temp.update()
+    }catch{
+      console.log("error")
+    }
 
 });
