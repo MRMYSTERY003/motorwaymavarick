@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 0.4rem;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 0.25rem;
+}
+
+.header {
+    display: none;
+}
+
+/* grid */
+
+
+/* -------------side nav bar --------------  */
+
+.sidebar {
+    background-color: #1c1c1c;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    text-align: center;
+    margin: 1em 0 0 1em;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px 15px;
+    white-space: nowrap;
+}
+
+.closebtn {
+    display: none;
+}
+
+.sidebar ul li a.active {
+    background-color: #555;
+}
+
+.logo {
+    width: 14em;
+    margin: 1em;
+}
+
+.copyrights {
+    padding: 10px 10px;
+    bottom: 0;
+    position: absolute;
+    font-size: 1em;
+    white-space: nowrap;
+}
+
+/* ----------------------  */
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        font-family: sans-serif;
+        overflow-x: hidden;
+    }
+
+    body::-webkit-scrollbar {
+        width: 50px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0.3);
+        border-radius: 0.25rem;
+    }
+
+    .header {
+        grid-area: header;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #1c1c1c;
+    }
+
+    .hamburger {
+        font-size: 30px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .header img {
+        height: 15rem;
+        max-height: 10vh;
+        margin-right: 2rem;
+    }
+
+    .sidebar {
+        height: 100%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        width: 0;
+        overflow-x: hidden;
+        transition: 0.5s;
+    }
+
+    .sidebar .logo {
+        display: none;
+    }
+
+    .closebtn {
+        display: block;
+        margin-top: 0.5em;
+        margin-left: 4em;
+        font-size: 10em;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /* Vehicle Count Boxes */
+
+    .sidebar ul {
+        list-style: none;
+        padding-top: 10em;
+    }
+
+    .sidebar ul li {
+        font-size: 4em;
+
+    }
+
+    .sidebar ul li a.active {
+        background-color: #555;
+    }
+
+    .copyrights {
+        padding: 10px 10px;
+        font-size: 3em;
+    }
+}

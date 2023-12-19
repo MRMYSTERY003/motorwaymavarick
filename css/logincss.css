@@ -1,0 +1,781 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #ff326c;
+}
+
+/* Main area - header, main and footer */
+
+.gridtemp {
+    display: grid;
+    grid-template-rows: 8vh auto 8vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100vh;
+    position: relative;
+}
+
+header {
+    background-color: #1c1c1c;
+    grid-area: 1 / 1 / 2 / 7;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+main {
+    grid-area: 2 / 1 / 3 / 7;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 4;
+    font-size: 1vw;
+}
+
+footer {
+    grid-area: 3 / 1 / 4 / 7;
+    background-color: #1c1c1c;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    margin-bottom: -2px;
+}
+
+/* Background */
+.logo {
+    grid-area: 1 / 1 / 2 / 2;
+    z-index: 1;
+    height: 2.5rem;
+    width: auto;
+    padding-right: 50em;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+}
+
+/* 
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(0%, -50%);
+    -webkit-mask-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
+    background-image: linear-gradient(left, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
+    background-color: rgba(0, 0, 0, 0.05);
+    width: 55.2%;
+    height: 100%;
+    z-index: 0;
+} */
+
+.bgimg1 {
+    -webkit-mask-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 50%);
+    background-image: linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 50%);
+    z-index: -1;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* .bgimg2 {
+    -webkit-mask-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
+    background-image: linear-gradient(left, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
+    z-index: -2;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    width: 95%;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    min-height: 10vh;
+    transform: scaleX(-1);
+} */
+
+h1 {
+    font-family: 'Anton', sans-serif;
+    text-align: right;
+    z-index: 10;
+    font-weight: 500;
+    margin: 0 1.5em 0 0;
+    /* background: rgb(255, 166, 0);
+    background: linear-gradient(90deg, rgba(255, 166, 0, 0.2) 15%, rgba(255, 166, 0, 0.9066001400560224) 70%, rgba(255, 50, 108, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffa600", endColorstr="#ff326c", GradientType=1);    
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-fill-color: transparent; */
+    color: #fff;
+}
+
+h1 span {
+    line-height: 0.9;
+    letter-spacing: 0.02em;
+}
+
+.large-text1 {
+    font-size: 7em;
+    font-weight: 900;
+    font-kerning: normal;
+    background-size: 80vw;
+    color: rgba(255, 255, 255, 0.2);
+    background-position: left;
+    z-index: 11;
+    background-image: url(login3.png);
+    background-clip: text;
+}
+
+.large-text2 {
+    font-size: 3em;
+}
+
+.small-text {
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #ffffff;
+    grid-area: 1 / 1 / 2 / 7;
+    margin: auto;
+    position: absolute;
+    right: auto;
+    left: auto;
+}
+
+
+/* login container */
+
+.logincontainer {
+    height: 100%;
+    max-height: 450px;
+    width: 25%;
+    background-color: #ffffff;
+    border-radius: 0.5em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 3em 2em 3em 2em;
+    z-index: 10;
+    box-shadow: 0 0 20px #1c1c1c50;
+}
+
+.field-icon {
+    float: right;
+    margin-left: -25px;
+    margin-top: -25px;
+    position: relative;
+    z-index: 2;
+}
+
+h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+form i::before {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    font-size: 1rem;
+    color: #aaa;
+    content: " ";
+    display: block;
+}
+
+form .form-field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.8rem;
+    position: relative
+}
+
+input:invalid {
+    border: 1px solid #ff326c;
+}
+
+form input {
+    width: 100%;
+    outline: none;
+    background-color: #fff;
+    border-radius: 4px;
+    border: none;
+    display: block;
+    padding: .85rem .7rem .85rem 2.5rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+    color: #1c1c1c;
+    text-indent: 0.1rem;
+}
+
+.form-field label {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-size: 16px;
+    color: #999;
+}
+
+
+form .form-field p {
+    position: absolute;
+    left: 30px;
+    font-size: 1rem;
+    padding: 15px 10px;
+    color: #aaa;
+    transition: 0.7s;
+    pointer-events: none;
+}
+
+form .form-field input:focus~p,
+form .form-field input:not(:placeholder-shown)~p,
+form .form-field input:-webkit-autofill~p {
+    transform: translate(-40px, -30px);
+    color: #1c1c1c;
+    font-size: 0.8rem;
+}
+
+
+::placeholder {
+    opacity: 0;
+}
+
+::-ms-input-placeholder {
+    opacity: 0;
+}
+
+form a {
+    font-size: 1rem;
+    margin: -10px 0 25px 0;
+    display: block;
+    text-decoration: none;
+    color: #aaa;
+}
+
+form a:hover {
+    color: rgba(255, 50, 108, 1);
+}
+
+
+form button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto -10px auto;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    max-height: 2.8em;
+}
+
+/* 
+.btngroup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: -1.8rem;
+} */
+
+form .btnlog {
+    background: rgb(255, 166, 0);
+    background: linear-gradient(90deg, rgba(255, 166, 0, 1) 0%, rgba(255, 50, 108, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#ffa600", endColorstr="#ff326c", GradientType=1);
+    color: #fff;
+    background-position: right;
+    padding: .9rem 2.5rem;
+    background-size: 500%;
+    transition: 0.5s;
+    min-width: 100%;
+}
+
+/* form .btnsign {
+    background: rgb(0, 63, 92);
+    background: linear-gradient(90deg, rgba(0, 63, 92, 1) 0%, rgba(60, 170, 234, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#003f5c", endColorstr="#3caaea", GradientType=1);
+    color: #fff;
+    background-position: right;
+    padding: .9rem 2.5rem;
+    background-size: 500%;
+    transition: 0.5s;
+    min-width: 5rem;
+    margin: 0 0 0 1rem;
+} */
+
+form .btngoogle {
+    padding: .9rem 1.3rem;
+    text-align: center;
+    min-width: 100%;
+    background-color: white;
+    max-height: 2.8em;
+    color: #1c1c1c;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form .btngoogle svg {
+    margin-right: 5px;
+}
+
+form .btngoogle:hover {
+    transform: scale(0.97);
+}
+
+form .btnlog:hover {
+    transform: scale(0.97);
+    background-position: left;
+    background-size: 100%;
+}
+
+form .btnsign:hover {
+    transform: scale(0.97);
+    background-position: left;
+    background-size: 100%;
+}
+
+.separator {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.separator::before,
+.separator::after {
+    content: "";
+    flex-grow: 1;
+    height: 1px;
+    background-color: #aaa;
+    margin: 0 10px;
+}
+
+.separator-text {
+    color: #1c1c1c;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Mobile Responsiveness */
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+    .gridtemp {
+        display: grid;
+        grid-template-rows: 15vh auto 7vh;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        height: 92.5vh;
+        width: auto;
+    }
+
+    header {
+        background-color: none;
+        grid-area: 1 / 1 / 2 / 7;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+        font-size: 1vw;
+        position: relative;
+    }
+
+    .logo {
+        grid-area: 1 / 1 / 2 / 2;
+        z-index: 10;
+        height: 16em;
+        width: auto;
+        padding: 0;
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin: -8em 0 0 0;
+    }
+
+    main {
+        grid-area: 2 / 1 / 3 / 7;
+        max-height: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        z-index: 4;
+        font-size: 1rem;
+    }
+
+    .logincontainer {
+        height: 100%;
+        max-height: 450px;
+        width: 85%;
+        background-color: #ffffff;
+        border-radius: 0.5em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 4em 2em 4em 2em;
+        z-index: 10;
+        box-shadow: 0 0 20px #1c1c1c50;
+        max-width: 500px;
+    }
+
+    h2 {
+        color: #ffffff;
+        grid-area: 1 / 1 / 2 / 7;
+        margin: 2.5em auto 0 auto;
+        font-size: 5.5em;
+    }
+
+
+    .bg {
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay {
+        display: none;
+    }
+
+    .bgimg1 {
+        z-index: -5;
+        width: 100%;
+        min-width: none;
+        height: auto;
+        -webkit-mask-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+        background-image: linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    .bgimg2 {
+        display: none;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    h3 {
+        margin-top: -0.5em;
+    }
+
+    form .logincontainer i::before {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        font-size: 1em;
+        color: black;
+        content: " ";
+        display: block;
+    }
+
+    h3 {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 0.6em;
+    }
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up)
+@media only screen and (min-width: 600px) {} */
+
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+
+    body {
+        overflow-y: scroll;
+    }
+
+    .gridtemp {
+        display: grid;
+        grid-template-rows: 15vh auto 5vh;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        height: 100vh;
+        width: auto;
+    }
+
+    .overlay {
+        display: none;
+    }
+
+    .bgimg1 {
+        z-index: -1;
+        width: 100%;
+        min-width: none;
+        height: auto;
+        -webkit-filter: blur(1px);
+        filter: blur(1px);
+        -webkit-mask-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+        background-image: linear-gradient(left, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    .bgimg2 {
+        display: none;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    h2 {
+        color: #ffffff;
+        grid-area: 1 / 1 / 2 / 7;
+        margin: 2.2em auto 0 auto;
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 5vw;
+        margin-top: 0;
+    }
+
+    form .logincontainer i::before {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        font-size: 1em;
+        color: black;
+        content: " ";
+        display: block;
+    }
+
+    .logincontainer {
+        height: 100%;
+        max-height: 600px;
+        width: 75%;
+        background-color: #ffffff;
+        border-radius: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 6em 6em 6em 6em;
+        z-index: 10;
+        box-shadow: 0 0 20px #1c1c1c50;
+        max-width: 500px;
+    }
+
+    form i::before {
+        position: absolute;
+        left: 15px;
+        top: 20px;
+        font-size: 1.3rem;
+        color: #aaa;
+        content: " ";
+        display: block;
+    }
+
+    form .form-field {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.8rem;
+        position: relative
+    }
+
+    input:invalid {
+        border: 1px solid #ff326c;
+    }
+
+    form input {
+        width: 100%;
+        outline: none;
+        background-color: #fff;
+        border-radius: 4px;
+        border: none;
+        display: block;
+        font-size: 1.3rem;
+        padding: 1rem .7rem 1rem 2.5rem;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, .16);
+        color: #1c1c1c;
+        text-indent: 0.1rem;
+    }
+
+    form .form-field p {
+        position: absolute;
+        left: 30px;
+        font-size: 1.3rem;
+        padding: 15px 15px;
+        color: #aaa;
+        transition: 0.7s;
+        pointer-events: none;
+    }
+
+    form .form-field input:focus~p,
+    form .form-field input:not(:placeholder-shown)~p,
+    form .form-field input:-webkit-autofill~p {
+        transform: translate(-40px, -40px);
+        color: #1c1c1c;
+        font-size: 1.1rem;
+    }
+
+
+    ::placeholder {
+        opacity: 0;
+    }
+
+    ::-ms-input-placeholder {
+        opacity: 0;
+    }
+
+    form a {
+        font-size: 1rem;
+        margin: -10px 0 25px 0;
+        display: block;
+        text-decoration: none;
+        color: #aaa;
+    }
+
+    form a:hover {
+        color: rgba(255, 50, 108, 1);
+    }
+
+
+    form button {
+        outline: none;
+        border: none;
+        cursor: pointer;
+        margin: 0 auto -10px auto;
+        text-align: center;
+        border-radius: 4px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        font-size: 1.3rem;
+        min-height: 3em;
+        padding: .9rem 2.5rem;
+    }
+
+    /* 
+.btngroup {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: -1.8rem;
+} */
+
+    form .btnlog {
+        background: rgb(255, 166, 0);
+        background: linear-gradient(90deg, rgba(255, 166, 0, 1) 0%, rgba(255, 50, 108, 1) 100%);
+        filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#ffa600", endColorstr="#ff326c", GradientType=1);
+        color: #fff;
+        background-position: right;
+        background-size: 500%;
+        transition: 0.5s;
+        min-width: 100%;
+    }
+
+    /* form .btnsign {
+    background: rgb(0, 63, 92);
+    background: linear-gradient(90deg, rgba(0, 63, 92, 1) 0%, rgba(60, 170, 234, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#003f5c", endColorstr="#3caaea", GradientType=1);
+    color: #fff;
+    background-position: right;
+    padding: .9rem 2.5rem;
+    background-size: 500%;
+    transition: 0.5s;
+    min-width: 5rem;
+    margin: 0 0 0 1rem;
+} */
+
+    form .btngoogle {
+        padding: .9rem 1.3rem;
+        text-align: center;
+        min-width: 100%;
+        background-color: white;
+        max-height: 2.8em;
+        color: #1c1c1c;
+        transition: 0.5s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    form .btngoogle svg {
+        margin-right: 5px;
+    }
+
+    form .btngoogle:hover {
+        transform: scale(0.97);
+    }
+
+    form .btnlog:hover {
+        transform: scale(0.97);
+        background-position: left;
+        background-size: 100%;
+    }
+
+    form .btnsign:hover {
+        transform: scale(0.97);
+        background-position: left;
+        background-size: 100%;
+    }
+
+    .separator {
+        margin: 20px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .separator::before,
+    .separator::after {
+        content: "";
+        flex-grow: 1;
+        height: 1px;
+        background-color: #aaa;
+        margin: 0 10px;
+    }
+
+    .separator-text {
+        color: #1c1c1c;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .logo {
+        grid-area: 1 / 1 / 2 / 2;
+        z-index: 10;
+        height: 5.5em;
+        width: auto;
+        padding: 0;
+        justify-content: flex-start;
+        display: flex;
+        flex-direction: column;
+        margin: -3.5em 0 0 0;
+    }
+
+}
+
+/* Large devices (laptops/desktops, 992px and up)
+@media only screen and (min-width: 992px) {} */

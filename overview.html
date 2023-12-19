@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="language" content="English">
+    <meta name="description" content="Dashboard for the telematic system created by Motorway Mavericks.">
+    <meta name="author" content="Motorway Mavericks">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/overview.css">
+    <link rel="stylesheet" href="css/common.css">
+
+    <link rel="icon" type="icon" sizes="32x32" href="Images/Favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+
+    <title>DASHBOARD</title>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <span class="hamburger" onclick="openNav()">&#9776;</span>
+            <a href="overview.html">
+                <img src="Images/logo3.png" alt="Logo">
+            </a>
+        </div>
+
+        <div class="sidebar" id="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="overview.html">
+                <img src="Images/logo3.png" class="logo" alt="Logo">
+            </a>
+            <ul>
+                <li><a  class="active" href="overview.html">OVERVIEW</a></li>
+                <li><a id="realtime-tag" href="realtime.html">REALTIME DATA</a></li>
+                <li><a href="appoinments.html">JOBS</a></li>
+                <li><a id="vehicle-tag" href="vehicles.html">VEHICLES</a></li>
+                <li><a href="jobs.html">MAINTAINANCE</a></li>
+            </ul>
+            <div class="copyrights">&copy; Motorway Mavericks 2023</div>
+        </div>
+
+        <div class="heading">
+            <h2>Overview</h2>
+        </div>
+
+        <div class="useraccount">
+            <div class="user">
+                <div class="user-logo"><img src="./lib/user.png" alt=""></div>
+                <div class="user-info">
+                    <p>Sriram</p>
+                    <p>Manager</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="g1">
+            <div class="vehicle-count">
+                <div class="vehicle-count-head">
+                    <span id='total-vehicle'>- - -</span>
+                    <h4>Total Vehicles</h4>
+                </div>
+                <div class="vehicle-info-icon">
+                    <i class="fa-solid fa-truck fa-fade fa-2xl"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="g2">
+            <div class="vehicle-count">
+                <div class="vehicle-count-head">
+                    <span id='online-vehicle'>- - -</span>
+                    <h4>Vehicles Online</h4>
+                </div>
+                <div class="vehicle-info-icon">
+                    <i class="fa-solid fa-bolt fa-fade fa-2xl"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="g3">
+            <div class="vehicle-count">
+                <div class="vehicle-count-head">
+                    <span id='offline-vehicle'>- - -</span>
+                    <h4>Vehicles Offline</h4>
+                </div>
+                <div class="vehicle-info-icon">
+                    <i class="fa-solid fa-circle-xmark fa-fade fa-2xl"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="g4">
+            <div class="vehicle-count">
+                <div class="vehicle-count-head">
+                    <span id='problem-vehicle'>- - -</span>
+                    <h4>Problems</h4>
+                </div>
+                <div class="vehicle-info-icon">
+                    <i class="fa-solid fa-triangle-exclamation fa-bounce fa-2xl"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="m1">
+            <div class="vehicle-list-container">
+                <div class="vehicle-list" id="vehicle-list">
+                </div>
+            </div>
+        </div>
+
+        <div class="m2">
+            <div class="map-cont">
+                <div class="map" id="mymap"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/overview.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("sidenav").style.width = "48%";
+        }
+
+        function closeNav() {
+            document.getElementById("sidenav").style.width = "0";
+        }
+    </script>
+
+</body>
+
+</html>

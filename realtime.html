@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+    <title>Motorway Mavericks</title>
+
+    <link rel="stylesheet" href="./css/realtime.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+
+    <div class="container">
+        <div class="header">
+            <span class="hamburger" onclick="openNav()">&#9776;</span>
+            <a href="overview.html">
+                <img src="Images/logo3.png" alt="Logo">
+            </a>
+        </div>
+        
+        <div class="sidebar" id="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="overview.html">
+                <img src="Images/logo3.png" class="logo" alt="Logo">
+            </a>
+            <ul>
+                <li><a href="overview.html">OVERVIEW</a></li>
+                <li><a  class="active" id="realtime-tag" href="realtime.html">REALTIME DATA</a></li>
+                <li><a href="appoinments.html">JOBS</a></li>
+                <li><a id="vehicle-tag" href="vehicles.html">VEHICLES</a></li>
+                <li><a href="jobs.html">MAINTAINANCE</a></li>
+            </ul>
+            <div class="copyrights">&copy; Motorway Mavericks 2023</div>
+        </div>
+
+        <div class="P1">
+            <div class="first-row-img">
+                <img id="car-img" src="./lib/cars/chevrolet camaro.png" alt="">
+            </div>
+        </div>
+        <div class="D1">
+            <div class="vehicle-performance">
+                <table class="vehicle-table">
+                    <tr>
+                        <td><h5>Model:</h5></td>
+                        <td id="model">Cheverlet Camero</td>
+                    </tr>
+                    <tr>
+                        <td><h5>Id:</h5></td>
+                        <td id="number-plate">TN 11 S 0311</td>
+                    </tr>
+                    <tr>
+                        <td><h5>Driver:</h5></td>
+                        <td id="driver">Vijayendran</td>
+                    </tr>
+                    <tr>
+                        <td><h5>Status:</h5></td>
+                        <td id="status">Online</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="D2">
+            <div class="fuel-info">
+                    <canvas class="fuel-gauge" id="fuel-gauge"></canvas>
+                    
+                    <h5>Fuel Level</h5>
+            </div>
+        </div>
+        <div class="D3">
+            <div class="second-row-speed">
+                <canvas id="speed"></canvas>
+                <h5>Speed</h5>
+            </div>
+        </div>
+        <div class="D4">
+            <div class="rpm-temp-battery">
+                <div class="vechicle-performance">
+                    <div class="vechicle-atter">
+                        <div class="icon-cont">
+                            <i class="fa-solid fa-gauge fa-xl"></i>
+                            <p>RPM</p>
+                        </div>
+                        <P id="rpm-val">3000</P>
+                    </div>
+                    <div class="vechicle-atter">
+                        <div class="icon-cont">
+                            <i class="fa-solid fa-temperature-high fa-xl"></i>
+                            <p>Coolant</p>
+                        </div>
+                        <p id="temperature-val">29</p>
+                    </div>
+                    <div class="vechicle-atter">
+                        <div class="icon-cont">
+                            <i class="fa-solid fa-car-battery fa-xl"></i>
+                            <p>Battery</p>
+                        </div>
+                        <p id="battery-val">12V</p>
+                    </div>
+                    <div class="vechicle-atter">
+                        <div class="icon-cont">
+                            <i class="fa-solid fa-gas-pump fa-xl"></i>
+                            <p>Avg-Fuel</p>
+                        </div>
+                        <p id="avg-fuel-val">50%</p>
+                    </div>
+                    <div class="vechicle-atter">
+                        <div class="icon-cont">
+                            <i class="fa-regular fa-clock fa-xl"></i>
+                            <p>Run Time</p>
+                        </div>
+                        <p id="run-time-val">2hr</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="D6">
+            <div class="map" id="mymap"></div>
+        </div>
+        <div class="B1">
+            <div class="throt-pos" id="throt-pos">
+            </div>
+        </div>
+        <div class="B2">
+            <div class="pressure-info">
+                <div class="pressure-gauge">
+                    <canvas id="pressure-gauge"></canvas>
+                </div>
+                <div class="pressure-info-text">
+                    <h5>Manifold Absolute Pressure</h5>
+                </div>
+            </div>
+
+        </div>
+        <div class="B3">
+            <div class="temperature-info">
+                <div class="temperature-gauge">
+                    <canvas id="temperature-gauge"></canvas>
+                </div>
+                <div class="temperature-info-text">
+                    <h5>Coolent Temperature</h5>
+                </div>
+            </div>
+        </div>
+             <div class="B5">
+            <div class="intake-temperature-info">
+                <div class="intake-temperature-gauge">
+                    <canvas id="intake-temperature-gauge"></canvas>
+                </div>
+                <div class="intake-temperature-info-text">
+                    <h5>Air Intake Temperature</h5>
+                </div>
+            </div>
+        </div>
+        <div class="B6">
+            <div class="rail-gauge-pressure-info">
+                <div class="rail-gauge-pressure-gauge">
+                    <canvas id="rail-gauge-pressure-gauge"></canvas>
+                </div>
+                <div class="rail-gauge-pressure-info-text">
+                    <h5>Rail Gauge Pressure</h5>
+                </div>
+            </div>
+        </div>
+        <div class="B4">
+            <div class="air-flow-rate" id="air-flow-rate">
+            </div>
+        </div>
+   
+        <div class="B7">
+            <div class="acceleration" id="acceleration"></div>
+        </div>
+    </div>
+        <script>
+            function openNav() {
+                document.getElementById("sidenav").style.width = "48%";
+            }
+
+            function closeNav() {
+                document.getElementById("sidenav").style.width = "0";
+            }
+        </script>
+    <script src="./js/gauge.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+    <script type="module" src="./js/realtime.js"></script>
+
+
+</body>
+</html>
