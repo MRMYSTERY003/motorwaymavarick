@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/appoinments.css">
     <title>Motorway Mavericks</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.css" rel="stylesheet">
 
-    <!-- FullCalendar JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.0/main.min.js"></script>
-
 </head>
 <body>
     
     <div class="top-nav">
+        <!-- Replace this with your actual top navigation content -->
         <h2>Appointments</h2>
         <div class="user">
             <div class="user-logo"><img src="./lib/user.png" alt=""></div>
@@ -26,76 +22,87 @@
             </div>
         </div>
     </div>
+
     <div class="left-nav">
+        <!-- Replace this with your actual left navigation content -->
         <div class="sidebar">
             <div class="product-info"> 
                 <p>Motorway Mavaricks</p>
             </div>
             <ul>
-
-              <li><a href="overview.html">OVERVIEW</a></li>
-              <li><a id = "realtime-tag" href="realtime.html">REALTIME DATA</a></li>
-              <li><a href="appoinments.html">JOBS</a></li>
-  
-                <li><a id = "vechicle-tag" href="vechicles.html">VEHICLES</a></li>
+                <li><a href="overview.html">OVERVIEW</a></li>
+                <li><a id="realtime-tag" href="realtime.html">REALTIME DATA</a></li>
+                <li><a href="appoinments.html">JOBS</a></li>
+                <li><a id="vechicle-tag" href="vechicles.html">VEHICLES</a></li>
                 <li><a href="jobs.html">MAINTAINANCE</a></li>
-
             </ul>
-          </div>
-    </div>
-
-    <div class="content">
-
-      <div class = "appointment-calendar">
-          <div class = "add-appointment">
-              <a href="#"><button>Add appointment</button></a>
-              <div class="current-date">
-                  <p id="current-date">
-              </p>
-              </div>
-          </div>
-          <div class="calendar"></div>
-          <div class="Maintenance">
-              <h2>Maintenance</h2>
-          </div>
-          <ul id="car-list"></ul>
-          <div class="recommendations">
-              <p>Recommendation: Tata motors, Ashok Nagar</p>
-          </div>
-      </div>
-    
-      <div class="daytime-wise-table">
-          <table>
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Day 1</th>
-                <th>Day 2</th>
-                <th>Day 3</th>
-                <th>Day 4</th>
-                <th>Day 5</th>
-                <th>Day 6</th>
-                <th>Day 7</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- You can generate the rows dynamically using JavaScript -->
-              <!-- Each row represents an hour -->
-              <tr>
-                <td>12:00 AM</td>
-                <td></td> <!-- Placeholder for Day 1 -->
-                <td></td> <!-- Placeholder for Day 2 -->
-                <td></td> <!-- Placeholder for Day 3 -->
-                <td></td> <!-- Placeholder for Day 4 -->
-                <td></td> <!-- Placeholder for Day 5 -->
-                <td></td> <!-- Placeholder for Day 6 -->
-                <td></td> <!-- Placeholder for Day 7 -->
-              </tr>
-            </tbody>
-          </table>
         </div>
     </div>
 
-      
+    <div class="content">
+        <!-- Replace this with your actual calendar and table content -->
+        <div class="appointment-calendar">
+            <!-- Your existing calendar content -->
+            <div class="add-appointment">
+                <a href="#"><button>Add appointment</button></a>
+                <div class="current-date">
+                    <p id="current-date"></p>
+                </div>
+            </div>
+            <div class="calendar"></div>
+            <div class="Maintenance">
+                <h2>Maintenance</h2>
+            </div>
+            <ul id="car-list"></ul>
+            <div class="recommendations">
+                <p>Recommendation: Tata motors, Ashok Nagar</p>
+            </div>
+        </div>
+        <div class="daytime-wise-table">
+            <!-- Your existing table content -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Day 1</th>
+                        <th>Day 2</th>
+                        <th>Day 3</th>
+                        <th>Day 4</th>
+                        <th>Day 5</th>
+                        <th>Day 6</th>
+                        <th>Day 7</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- You can generate the rows dynamically using JavaScript -->
+                    <!-- Each row represents an hour -->
+                    <tr>
+                        <td>12:00 AM</td>
+                        <td></td> <!-- Placeholder for Day 1 -->
+                        <td></td> <!-- Placeholder for Day 2 -->
+                        <td></td> <!-- Placeholder for Day 3 -->
+                        <td></td> <!-- Placeholder for Day 4 -->
+                        <td></td> <!-- Placeholder for Day 5 -->
+                        <td></td> <!-- Placeholder for Day 6 -->
+                        <td></td> <!-- Placeholder for Day 7 -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <script src="./js/appoinments.js"></script>
+
+    <script type="module">
+        import { auth, onAuthStateChanged } from './fbase.js';
+
+        // Check authentication state
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // User is not authenticated, redirect to login page
+                window.location = 'login.html';
+            }
+        });
+    </script>
 </body>
+</html>
