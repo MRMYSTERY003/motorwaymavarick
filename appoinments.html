@@ -93,16 +93,7 @@
 
     <script src="./js/appoinments.js"></script>
 
-    <script type="module">
-        import { auth, onAuthStateChanged } from './fbase.js';
-
-        // Check authentication state
-        onAuthStateChanged(auth, (user) => {
-            if (!user) {
-                // User is not authenticated, redirect to login page
-                window.location = 'login.html';
-            }
-        });
+    <script src="./authentication.html">
     </script>
 </body>
 </html>
