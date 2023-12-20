@@ -1,19 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title> Map  </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <!-- Custom Styles -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-    <div id="mymap"> </div>
+    <meta name="language" content="English">
+    <meta name="description" content="Dashboard for the telematic system created by Motorway Mavericks.">
+    <meta name="author" content="Motorway Mavericks">
 
-    <script type="module" src="js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/logincss.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="icon" type="icon" sizes="32x32" href="Images/Favicon/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <title>LOGIN</title>
+</head>
+
+<body>
+
+    <div class="gridtemp">
+
+
+        <header>
+            <img class="logo" src="Images/logo3.png" alt="Logo">
+            <h2>TELEMATIC SYSTEM DASHBOARD</h2>
+        </header>
+
+        <main>
+            <div class="bg">
+                <!-- <div class="overlay"></div> -->
+                <img id="responsive-image" src="Images/login3c.png" class="bgimg1" alt="BGimage">
+                <!-- <img id="responsive-image" src="Images/login3c.png" class="bgimg2" alt="BGimage"> -->
+            </div> 
+
+            <h1 class="fade-in-left">
+                <span class="small-text">REVOLUTIONISING</span><br>
+                <span class="large-text1">FLEET</span><br>
+                <span class="small-text">MANAGEMENT,</span><br>
+                <span class="large-text2">YOUR WAY!</span><br>
+            </h1>
+
+            <form class="logincontainer">
+                <h3>Login</h3>
+                <div class="form-field">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="email" id="mail" name="email" required placeholder="EMAIL"><p>Email</p>
+                    <!-- <label for="email">Email ID</label> -->
+                </div>
+                <div class="form-field">
+                    <i class="fa-solid fa-key"></i>
+                    <input type="password" id="password" name="password" required placeholder="PASSWORD" /><p>Password</p>
+                    <!-- <label for="password">Password</label> -->
+                </div>
+                <!-- <a href="">Forgot Password</a> -->
+
+                <div class="form-field">
+                    <button class="btnlog" id="signin" type="button">Log in</button>
+                </div>
+
+                <!-- <div class="btngroup">
+                    
+                    <div class="form-field">
+                        <button class="btnsign" type="submit">Sign In</button>
+                    </div> 
+                </div> -->
+
+                <div class="separator">
+                    <span class="separator-text">or</span>
+                </div>
+                <div class="form-field">
+                    <button class="btngoogle" id="withg" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25"
+                            viewBox="0 0 48 48">
+                            <path fill="#FFC107"
+                                d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                            <path fill="#FF3D00"
+                                d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z">
+                            </path>
+                            <path fill="#4CAF50"
+                                d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z">
+                            </path>
+                            <path fill="#1976D2"
+                                d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z">
+                            </path>
+                        </svg>Continue with Google</button>
+                </div>
+            </form>
+
+
+        </main>
+
+        <footer>
+            <div>&copy; Motorway Mavericks 2023</div>
+        </footer>
+
+    </div>
+
+    <script type="module" src="js/login.js"></script>
+    <script>
+
+        // Get a reference to the image element
+        const responsiveImage = document.getElementById('responsive-image');
+
+        // Function to change the image source based on screen width
+        function changeImageByScreenSize() {
+            if (window.innerWidth < 700) {
+                responsiveImage.src = 'Images/login600.png';
+            } else if (window.innerWidth > 700 && window.innerWidth < 1000 ){
+                responsiveImage.src = 'Images/login.png';
+            }
+            else {
+                responsiveImage.src = 'Images/logincoal.png';
+            }
+        }
+
+        // Initial call to set the image based on screen size
+        changeImageByScreenSize();
+
+        // Listen for window resize events and update the image source accordingly
+        window.addEventListener('resize', changeImageByScreenSize);
+    </script>
+
 </body>
+
 </html>

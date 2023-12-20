@@ -1,0 +1,398 @@
+.container {
+  display: grid;
+  grid-template-columns: 16% 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0%;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 2rem 2rem;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "sidebar P1 P1 D1 D1 D2 D2 D2 D2"
+    "sidebar D3 D3 D4 D4 D6 D6 D6 D6"
+    "sidebar B1 B1 B1 B1 B1 B1 B1 B1"
+    "sidebar B2 B2 B2 B2 B3 B3 B3 B3"
+    "sidebar B5 B5 B5 B5 B6 B6 B6 B6"
+    "sidebar B4 B4 B4 B4 B7 B7 B7 B7";
+  font-size: 1vw;
+  height: 100vh;
+  flex-basis: 200;
+}
+
+.P1 {
+  grid-area: P1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.D1 {
+  grid-area: D1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.D2 {
+  grid-area: D2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.D3 {
+  grid-area: D3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.D4 {
+  grid-area: D4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.D6 {
+  grid-area: D6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.B1 {
+  grid-area: B1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.B2 {
+  grid-area: B2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.B3 {
+  grid-area: B3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.B4 {
+  grid-area: B4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.B5 {
+  grid-area: B5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.B6 {
+  grid-area: B6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.B7 {
+  grid-area: B7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ------------- Box 1 ---------  */
+
+.first-row-img img {
+  width: 16vw;
+}
+
+/*  Box 2*/
+
+.vehicle-performance {
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  width: 100%;
+  font-size: 1rem;
+}
+
+.vehicle-table {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  padding: 1em;
+  font-size: 1.2em;
+}
+
+.vehicle-table td {
+  text-align: left;
+  color: blue;
+}
+
+.vehicle-table h5 {
+  font-weight: 700;
+  color: #333;
+  font-size: 1em;
+  padding: 1em 0 1em 1em;
+  margin-left: 1em;
+}
+
+.vehicle-info {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
+}
+
+.vehicle-atter {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+p {
+  text-align: left;
+}
+
+
+
+.fuel-info {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.intake-temperature-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.rail-gauge-pressure-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+
+.pressure-info,
+.temperature-info {
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 20px;
+}
+
+.rpm-temp-battery .vehicle-atter {
+  background-color: rgba(0, 255, 255, 0.605);
+  border-radius: 5px;
+  width: 34vw;
+  max-width: 300px;
+  font-size: 1em;
+}
+
+.icon-cont {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 120px;
+}
+
+.rpm :hover {
+  background-color: #040d12;
+}
+
+#mymap {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
+}
+
+.second-row-speed {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  width: 100%;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.throt-pos {
+  padding: 20px;
+  width: fit-content;
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 100%;
+}
+
+.air-flow-rate {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.acceleration {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  padding-top: 1rem;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 600px) {
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 0%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 2em 2em;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "header header header header"
+      "P1 P1 D1 D1"
+      "D2 D2 D3 D3"
+      "D4 D4 D6 D6"
+      "B1 B1 B1 B1"
+      "B2 B2 B2 B2"
+      "B3 B3 B3 B3"
+      "B4 B4 B4 B4"
+      "B5 B5 B5 B5"
+      "B6 B6 B6 B6"
+      "B7 B7 B7 B7";
+    font-size: 1vw;
+    height: 100vh;
+    flex-basis: 200;
+  }
+
+  .first-row-img img {
+    width: 45vw;
+  }
+
+  .vehicle-performance {
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5em;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-size: 3.5em;
+    padding: 1em;
+  }
+
+  .rpm-temp-battery .vehicle-atter {
+    border-radius: 5px;
+    width: 34vw;
+    max-width: 300px;
+    font-size: 1em;
+  }
+
+  .vehicle-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+  }
+
+  .vehicle-table td {
+    padding: 1em;
+    text-align: left;
+    color: blue;
+  }
+
+  .vehicle-table h5 {
+    margin: 0;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .fuel-info {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 5em;
+    padding: 0;
+
+  }
+
+  .fuel-gauge {
+    margin-bottom: -2em;
+  }
+
+  .second-row-speed {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.34);
+    backdrop-filter: blur(10px);
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}

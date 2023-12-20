@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Encode+Sans:wght@100;200;300;400;600;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,300;1,500;1,600&display=swap");
+
+body {
+  padding: 0px;
+  margin: 0px;
+  background-color: rgb(235, 223, 215);
+  font-family: "Poppins", sans-serif;
+  font-weight: 300px;
+  scrollbar-width: none;
+  --ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+  width: 0.4rem; /* Width of the scrollbar track */
+}
+
+/* Optional: For Webkit-based browsers like Chrome and Safari */
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* Color of the scrollbar thumb */
+  border-radius: 0.25rem; /* Rounded corners of the scrollbar thumb */
+}
+
+.top-nav {
+  height: 80px;
+  background-color: rgb(235, 223, 215);
+  padding: 5px;
+  border-radius: 2px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 250px;
+}
+
+p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+span {
+  font-size: 0.7rem;
+}
+
+.product-info {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+}
+
+.user {
+  height: inherit;
+  background-color: #fff;
+  width: 250px;
+  float: right;
+  margin-right: 50px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 25px;
+  padding: 1px;
+}
+
+.user img {
+  height: 50px;
+}
+
+.user-logo {
+  display: flex; /* Use flexbox to center the image horizontally and vertically */
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.product-info {
+  padding: 1px;
+  border-radius: 5px;
+
+  height: 80px;
+  width: 200px;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+/* -------------side nav bar --------------  */
+
+.sidebar {
+  width: 210px;
+  background-color: #060606;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: #fff;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 20px;
+  text-align: left;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 10px 20px;
+}
+
+.sidebar ul li a.active {
+  background-color: #555;
+}
+
+/* -----------side nav end -----------  */
+
+/* ------------ dropdown --------  */
+
+/* Your existing CSS styles for the sidebar */
+
+/* Style the dropdown menu */
+.sidebar ul li ul.dropdown {
+  display: none;
+  width: 150px;
+  top: 0;
+  margin: auto;
+  list-style: none;
+  z-index: -1;
+  padding: 0px;
+}
+
+.sidebar ul li:hover ul.dropdown {
+  display: block; /* Display the dropdown menu when the parent li is hovered */
+}
+
+/* Style the dropdown menu links */
+.sidebar ul li ul.dropdown li {
+  text-align: left;
+
+  border-radius: 5px;
+  padding: 5px;
+
+  margin: 3px;
+}
+
+.sidebar ul li ul.dropdown li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 10px;
+}
+
+.sidebar ul li ul.dropdown li a.active {
+  border: #040d12;
+  border-width: 4px;
+}
+/* ------------- drop down end ---------  */
+
+.content {
+  margin-left: 220px;
+  margin-top: 20px;
+  padding: 20px;
+  padding-top: 0px;
+  display: flex;
+
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: rgb(235, 223, 215);
+}
+
+/* Add CSS styles to position the table 210px from the left */
+.table-container {
+    margin-left: 260px;
+    position: absolute;
+    top: 120px;
+    left: 230px;
+    right: 20px;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Rest of your CSS styles */
+
+
+table {
+    border-collapse: auto;
+    width: 100%;
+    border-color: #726d6d;
+}
+
+th, td {
+    border: 1px solid #1a1717;
+    padding: 8px;
+    text-align: center;
+}
+
+thead {
+    background-color: #f0f0f0;
+}

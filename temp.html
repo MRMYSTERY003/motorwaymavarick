@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Map  </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>  <!-- chart library -->
+
+    <!-- gauge -->
+    <script src="./js/gauge.min.js"></script>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/> -->
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+    <!-- Custom Styles -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+    <div id="mymap"> </div>
+    <div class="chart">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <canvas id="gu"></canvas>
+    <canvas id="temp"></canvas>
+    <canvas id="preasure"></canvas>
+
+
+    <script type="module" src="js/script.js"></script>
+</body>
+</html>

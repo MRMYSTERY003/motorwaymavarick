@@ -1,60 +1,72 @@
-let map = L.map('mymap').setView([19.5937, 78.9629], 5);
-let ourData = [];
 
-// L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-// 	maxZoom: 19,
-// 	//attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/" target="_blank">Humanitarian OpenStreetMap Team</a> hosted by <a href="https://openstreetmap.fr/" target="_blank">OpenStreetMap France</a>'
-//     maxZoom: 20,
-//     minZoom: 2,
-//     tileSize: 512,
-//     zoomOffset: -1
-// }).addTo(map);
+class Map {
+    constructor(id) {
 
+        this.map = L.map(id).setView([12.924846, 80.092893], 10);
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
-    maxZoom: 20,
-    minZoom: 2,
-    tileSize: 512,
-    zoomOffset: -1
-}).addTo(map);
- 
-let iconOption = {
-    iconUrl: './lib/location-marker.svg',
-    iconSize: [30, 30]
-};
-let ourCustomIcon = L.icon(iconOption);
+        this.title = "test";
+        this.list = [];
 
-class Map{
-    constructor(latitude, longitude, zoom, title){
-        this.lat =latitude;
-        this.long = longitude;        
-        this.zoom = zoom;
-        this.title = title; 
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 50,
+            minZoom: 2,
+            tileSize: 512,
+            zoomOffset: -1,
+            zoomDelta: 1,
+        }).addTo(this.map);
+
+        this.iconOption = {
+            iconUrl: './lib/car.png',
+            iconSize: [50, 50]
+        };
+
+        this.ourCustomIcon = L.icon(this.iconOption);
+        this.marker = L.marker([51.5, -0.09], { icon: this.ourCustomIcon }).addTo(this.map);
+
     }
 
-    setpos(lat, long, title){
-        L.marker([this.lat, this.long], {icon: ourCustomIcon}).bindPopup(`<h3> ${this.title} </h3>`).addTo(map);
+    set(lat,long){
+        this.marker.setLatLng([lat, long]);
+
+            // this.map.flyTo([lat, long], zoom)
+
     }
 
-    locate(){
-        map.flyTo([this.lat, this.long], this.zoom);
+
+    setpos(lat, long,) {
+        L.marker([lat, long], { icon: this.ourCustomIcon }).addTo(this.map)
+        this.map.flyTo([lat, long], 16);
+
     }
 
-    updatelocation(data){
-        var lat = data['lat'];
-        var long = data['long'];
-        var name = data['name'];
-        L.marker([lat, long], {icon : ourCustomIcon}).bindPopup(`<h3> ${name} </h3>`).addTo(map)
+    locate(lat, long, zoom) {
+        
+        this.map.flyTo([lat, long], zoom);
+
     }
 
-    updatelocations(data){
+    updatelocation(data) {
+        this.lat = data['lat'];
+        this.long = data['long'];
+        L.marker([this.lat, this.long], { icon: this.ourCustomIcon }).addTo(this.map)
+
+    }
+
+    deletemarker(){
+        this.list.forEach((ele) =>{
+            ele.remove();
+        })
+        this.list = [];
+    }
+
+    updatelocations(data) {
+        this.deletemarker();
         data.forEach(element => {
             console.log(element)
             var lat = element['lat'];
             var long = element['long'];
-            var name = element['name'];
-            L.marker([lat, long], {icon : ourCustomIcon}).bindPopup(`<h3> ${name} </h3>`).addTo(map)
+            var mark = L.marker([lat, long], { icon: this.ourCustomIcon }).addTo(this.map)
+            this.list.push(mark);
         });
     }
 

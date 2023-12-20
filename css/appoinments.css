@@ -1,0 +1,444 @@
+@import url("https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Encode+Sans:wght@100;200;300;400;600;800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,300;1,500;1,600&display=swap");
+
+body {
+  padding: 0px;
+  margin: 0px;
+  height: 100%;
+  background-color: rgb(235, 223, 215);
+  font-family: "Poppins", sans-serif;
+  font-weight: 300px;
+  scrollbar-width: none;
+  --ms-overflow-style: none;
+}
+body::-webkit-scrollbar {
+  width: 0.4rem; /* Width of the scrollbar track */
+}
+
+/* Optional: For Webkit-based browsers like Chrome and Safari */
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* Color of the scrollbar thumb */
+  border-radius: 0.25rem; /* Rounded corners of the scrollbar thumb */
+}
+
+.top-nav {
+  height: 80px;
+  background-color: rgb(235, 223, 215);
+  padding: 5px;
+  border-radius: 2px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 250px;
+}
+
+p {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+span {
+  font-size: 0.7rem;
+}
+
+.product-info {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+}
+
+.user {
+  height: inherit;
+  background-color: #fff;
+  width: 250px;
+  float: right;
+  margin-right: 50px;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 25px;
+  padding: 1px;
+}
+
+.user img {
+  height: 50px;
+}
+
+.user-logo {
+  display: flex; /* Use flexbox to center the image horizontally and vertically */
+  justify-content: center; /* Center horizontally */
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.product-info {
+  padding: 1px;
+  border-radius: 5px;
+
+  height: 80px;
+  width: 200px;
+  margin-bottom: 50px;
+  margin-top: 10px;
+}
+
+/* -------------side nav bar --------------  */
+
+.sidebar {
+  width: 210px;
+  background-color: #060606;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: #fff;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 10px 0;
+  text-align: center;
+  margin-top: 20px;
+  text-align: left;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 10px 20px;
+}
+
+.sidebar ul li a.active {
+  background-color: #555;
+}
+
+/* -----------side nav end -----------  */
+
+/* ------------ dropdown --------  */
+
+/* Your existing CSS styles for the sidebar */
+
+/* Style the dropdown menu */
+.sidebar ul li ul.dropdown {
+  display: none;
+  width: 150px;
+  top: 0;
+  margin: auto;
+  list-style: none;
+  z-index: -1;
+  padding: 0px;
+}
+
+.sidebar ul li:hover ul.dropdown {
+  display: block; /* Display the dropdown menu when the parent li is hovered */
+}
+
+/* Style the dropdown menu links */
+.sidebar ul li ul.dropdown li {
+  text-align: left;
+
+  border-radius: 5px;
+  padding: 5px;
+
+  margin: 3px;
+}
+
+.sidebar ul li ul.dropdown li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 10px;
+}
+
+.sidebar ul li ul.dropdown li a.active {
+  border: #040d12;
+  border-width: 4px;
+}
+/* ------------- drop down end ---------  */
+
+.content {
+  margin-left: 220px;
+  margin-top: 20px;
+  padding: 20px;
+  padding-top: 0px;
+  display: flex;
+
+  justify-content: space-around;
+  flex-direction: row;
+  background-color: rgb(235, 223, 215);
+}
+
+.vechicle-info {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.34); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Background blur effect */
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
+}
+
+.vechicle-atter {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 10px;
+}
+
+p {
+  text-align: left;
+}
+
+.vechicle-performance {
+  width: 300px;
+  background: rgba(255, 255, 255, 0.34); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Background blur effect */
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
+}
+
+.appointment-calendar {
+  width: 400px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.34); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Background blur effect */
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 10px;
+}
+
+.daytime-wise-table::-webkit-scrollbar {
+  width: 0.4rem; /* Width of the scrollbar track */
+}
+
+/* Optional: For Webkit-based browsers like Chrome and Safari */
+.daytime-wise-table::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* Color of the scrollbar thumb */
+  border-radius: 0.25rem; /* Rounded corners of the scrollbar thumb */
+}
+
+.calendar ::-webkit-scrollbar {
+  width: 0.4rem; /* Width of the scrollbar track */
+}
+
+/* Optional: For Webkit-based browsers like Chrome and Safari */
+.calendar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* Color of the scrollbar thumb */
+  border-radius: 0.25rem; /* Rounded corners of the scrollbar thumb */
+}
+
+/* Style the scrollbar for the .appointment-calendar element */
+.appointment-calendar::-webkit-scrollbar {
+  width: 0.4rem; /* Width of the scrollbar track */
+}
+
+/* Style the scrollbar thumb (the draggable part) for .appointment-calendar */
+.appointment-calendar::-webkit-scrollbar-thumb {
+  background-color: #4c4d4e; /* Color of the thumb */
+  border-radius: 0.2rem; /* Rounded corners for the thumb */
+}
+
+/* Style the scrollbar track (the background) for .appointment-calendar */
+.appointment-calendar::-webkit-scrollbar-track {
+  background-color: #4c4d4e; /* Color of the track */
+}
+
+.add-appointment button {
+  background-color: chocolate;
+  color: white;
+  border: none; /* Remove the default button border */
+  padding: 10px 20px; /* Add padding for spacing */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  margin-top: 50px;
+  width: 290px;
+  margin-left: 30px;
+  margin-right: 30px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300px;
+  align-items: center;
+}
+
+.add-appointment button:hover {
+  background-color: darkred; /* Change button color on hover */
+}
+
+.current-date {
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.calendar {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  text-align: center;
+  margin: 20px auto; /* Center the calendar horizontally and add spacing */
+  border-radius: 10px; /* Add rounded corners */
+}
+
+.calendar table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendar caption {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.calendar th,
+.calendar td {
+  text-align: center;
+  padding: 10px;
+}
+
+.calendar th {
+  background-color: #f0f0f0;
+}
+
+.calendar td {
+  border: 1px solid #ddd;
+}
+
+.calendar td:hover {
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+/* Style the FullCalendar toolbar buttons */
+.fc-toolbar.fc-header-toolbar {
+  text-align: center;
+}
+
+/* Style the FullCalendar header buttons */
+.fc-button-today,
+.fc-button-prev,
+.fc-button-next {
+  font-size: 10px; /* Adjust the font size as needed */
+  padding: 5px 10px; /* Adjust the padding as needed for button size */
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the "today" button on hover */
+.fc-button-today:hover {
+  background-color: #0056b3; /* Change the background color on hover */
+}
+
+/* Style the navigation buttons on hover */
+.fc-button-prev:hover,
+.fc-button-next:hover {
+  background-color: #0056b3; /* Change the background color on hover */
+}
+
+/* Style for car list container */
+#car-list {
+  margin-top: 2px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  background-color: rgb(235, 223, 215);
+}
+
+/* Style for individual car items (checkbox and label) */
+.car-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: rgb(235, 223, 215);
+}
+
+/* Style for checkboxes */
+.car-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.Maintenance {
+  font-family: "Poppins", sans-serif;
+  font-weight: 150px;
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.recommendations {
+  margin-top: 10px;
+  text-size-adjust: auto;
+  margin-left: 10px;
+  margin-bottom: 20px;
+}
+
+.appointment-daytimewise {
+  margin-left: 560px;
+  background-color: rgb(33, 138, 33);
+  margin-top: 50px;
+  width: 1000px;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.daytime-wise-table {
+  height: 770px;
+  background: rgba(255, 255, 255, 0.34); /* Transparent white background */
+  backdrop-filter: blur(10px); /* Background blur effect */
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 30px;
+  bottom: 0;
+  overflow: auto; /* Add scrollbars if content overflows */
+}
+
+.daytime-wise-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.daytime-wise-table th,
+.daytime-wise-table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.daytime-wise-table thead th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+/* Add styling for blocked cells */
+.blocked-cell {
+  background-color: rgba(
+    0,
+    0,
+    255,
+    0.338
+  ); /* Change the background color to blue for blocked cells */
+  color: white; /* Change the text color to white for better visibility */
+  font-weight: bold; /* Make the text bold for blocked cells */
+  border-radius: 5px;
+}
