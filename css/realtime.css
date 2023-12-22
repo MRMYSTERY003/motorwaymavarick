@@ -1,398 +1,623 @@
-.container {
-  display: grid;
-  grid-template-columns: 16% 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 0%;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 2rem 2rem;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "sidebar P1 P1 D1 D1 D2 D2 D2 D2"
-    "sidebar D3 D3 D4 D4 D6 D6 D6 D6"
-    "sidebar B1 B1 B1 B1 B1 B1 B1 B1"
-    "sidebar B2 B2 B2 B2 B3 B3 B3 B3"
-    "sidebar B5 B5 B5 B5 B6 B6 B6 B6"
-    "sidebar B4 B4 B4 B4 B7 B7 B7 B7";
-  font-size: 1vw;
-  height: 100vh;
-  flex-basis: 200;
+/* general */
+/* -------------side nav bar --------------  */
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  appearance: none;
+  border: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
 }
 
-.P1 {
-  grid-area: P1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+html {
+  font-size: 16px;
+  font-family: sans-serif;
 }
 
-.D1 {
-  grid-area: D1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.D2 {
-  grid-area: D2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.D3 {
-  grid-area: D3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.D4 {
-  grid-area: D4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.D6 {
-  grid-area: D6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.B1 {
-  grid-area: B1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.B2 {
-  grid-area: B2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.B3 {
-  grid-area: B3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.B4 {
-  grid-area: B4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.B5 {
-  grid-area: B5;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.B6 {
-  grid-area: B6;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.B7 {
-  grid-area: B7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* ------------- Box 1 ---------  */
-
-.first-row-img img {
-  width: 16vw;
-}
-
-/*  Box 2*/
-
-.vehicle-performance {
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  height: 100%;
-  width: 100%;
+body {
+  font-family: sans-serif;
+  overflow-x: hidden;
   font-size: 1rem;
 }
 
-.vehicle-table {
-  width: 100%;
-  height: 100%;
-  border-collapse: collapse;
-  padding: 1em;
-  font-size: 1.2em;
+body::-webkit-scrollbar {
+  width: 0.4rem;
 }
 
-.vehicle-table td {
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+}
+
+.header {
+  display: none;
+}
+
+.sidebar {
+  background-color: #1c1c1c;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: #fff;
+  overflow-x: hidden;
+  width: 5%;
+  transition: 0.5s;
+}
+
+
+.sidebar .logo {
+  width: 12em;
+  margin: 1em 0em 1em 0.5em;
+  transition: 0.5s;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 10em;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.sidebar ul li i {
+  font-size: 1.5em;
+  margin-left: 1em;
+
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 1.4em 1.2em;
+  white-space: nowrap;
   text-align: left;
-  color: blue;
+  margin-left: 1em;
+  transition: 0.3s;
+  font-weight: 600;
+  opacity: 0;
 }
 
-.vehicle-table h5 {
-  font-weight: 700;
-  color: #333;
-  font-size: 1em;
-  padding: 1em 0 1em 1em;
+.sidebar ul li:hover {
+  background-color: #555;
+  cursor: pointer;
+}
+
+.sidebar:hover ul li a {
+  margin-left: -0.4em;
+  opacity: 1;
+}
+
+.blackbox {
+  width: 10em;
+  height: 3em;
+  background-color: #1c1c1c;
+  padding: 1em;
+  margin-left: -9em;
+  transition: 0.5s;
+  opacity: 1;
+}
+
+.sidebar:hover .blackbox {
+  width: 0;
+  margin-left: -8em;
+  opacity: 0;
+}
+
+.logocontainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.closebtn {
+  display: none;
+}
+
+.sidebar ul li.active {
+  background-color: #ff326c;
+}
+
+.sidebar:hover {
+  width: 13%;
+}
+
+.sidebar:hover .logo {
+  width: 10em;
+}
+
+.df {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.para span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+
+.col {
+  flex-direction: column;
+}
+
+.c {
+  border-radius: 0.3rem;
+  box-shadow: 0 0 7px #1c1c1c50;
+}
+
+.para {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 100%;
+  box-shadow: 0 0 7px #1c1c1c50;
+  height: 12rem;
+  width: 12rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h4 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  align-items: center;
+  text-align: center;
+  font-weight: 200;
+}
+
+h6 {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  font-weight: 200;
+}
+
+h3 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  padding: 1.2rem 0;
+}
+
+h5 {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+  padding: 0;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  color: #ff3268;
+  font-weight: 800;
+}
+
+.dial {
+  border-radius: 1rem;
+  height: 7rem;
+}
+
+.dial span {
+  flex-direction: row;
+  align-items: center;
+}
+
+.dial h4 {
+  font-size: 2.7rem;
+}
+
+.dial h6 {
+  font-size: 1.5rem;
+}
+
+/* grid */
+
+.container {
+  display: grid;
+  grid-template-columns: 14% 1fr 1fr 1fr 1fr 1fr 0%;
+  grid-template-rows: 1fr 1fr 0.5fr 1fr 1fr 0.5fr 1fr 0.5fr 1fr;
+  grid-template-areas:
+    "search button . . user user"
+    "search veh-details veh-details driver-details driver-details payload"
+    "search title1 title1 title1 title1 title1"
+    "search rpm fuel trans-oil egt cool-oil"
+    "search a1 a2 alternator fuel-rate oilpress"
+    "search title2 title2 title2 title2 title2"
+    "search hp1 hp2 hp3 hp4 hp5"
+    "search title3 title3 title3 title3 title3"
+    "search pressure1 veh-img2 pressure2 . .";
+  font-size: 1rem;
+  height: 100vh;
+  gap: 1rem 1rem;
+  padding-left: 5%;
+  transition: 0.5s;
+}
+
+.search {
+  grid-area: search;
+  overflow-y: scroll;
+}
+
+.button {
+  grid-area: button;
+}
+
+.user {
+  grid-area: user;
+}
+
+.veh-details {
+  grid-area: veh-details;
+}
+
+.driver-jpg {
+  grid-area: driver-jpg;
+}
+
+.driver-details {
+  grid-area: driver-details;
+}
+
+.title1 {
+  grid-area: title1;
+}
+
+.rpm {
+  grid-area: rpm;
+}
+
+.trans-oil {
+  grid-area: trans-oil;
+}
+
+.fuel {
+  grid-area: fuel;
+}
+
+.egt {
+  grid-area: egt;
+}
+
+.a1 {
+  grid-area: a1;
+}
+
+.torque {
+  grid-area: a2;
+}
+
+.cool-oil {
+  grid-area: cool-oil;
+}
+
+.alternator {
+  grid-area: alternator;
+}
+
+.fuel-rate {
+  grid-area: fuel-rate;
+}
+
+.oilpress {
+  grid-area: oilpress;
+}
+
+.payload {
+  grid-area: payload;
+}
+
+.title2 {
+  grid-area: title2;
+}
+
+.hp1 {
+  grid-area: hp1;
+}
+
+.hp2 {
+  grid-area: hp2;
+}
+
+.hp3 {
+  grid-area: hp3;
+}
+
+.hp4 {
+  grid-area: hp4;
+}
+
+.hp5 {
+  grid-area: hp5;
+}
+
+.title3 {
+  grid-area: title3;
+}
+
+.veh-img2 {
+  grid-area: veh-img2;
+}
+
+.b1 {
+  grid-area: b1;
+}
+
+.b2 {
+  grid-area: b2;
+}
+
+.b3 {
+  grid-area: b3;
+}
+
+.b4 {
+  grid-area: b4;
+}
+
+.title4 {
+  grid-area: title4;
+}
+
+.v1 {
+  grid-area: v1;
+}
+
+.v2 {
+  grid-area: v2;
+}
+
+.v3 {
+  grid-area: v3;
+}
+
+.v5 {
+  grid-area: v5;
+}
+
+.v6 {
+  grid-area: v6;
+}
+
+.temp {
+  grid-area: temp;
+}
+
+.pressure1 {
+  grid-area: pressure1;
+}
+
+.pressure2 {
+  grid-area: pressure2;
+}
+
+/* button */
+.button button {
+  padding: 0.5em;
+  border-radius: 0.3rem;
+  background-color: #ff3268;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+  transform: scale(1);
+  width: 80%;
+  display: flex;
+  align-items: center;
+}
+
+.button button:hover {
+  box-shadow: 0 0 7px #1c1c1c50;
+  transform: scale(1.05);
+}
+
+.button button i {
+  font-size: 1.5em;
+  margin-right: 0.4em;
+}
+
+.button button:hover {
+  box-shadow: 0 0 7px #1c1c1c50;
+  transform: scale(1.05);
+}
+
+/* search table */
+
+
+.search h2 {
+  font-size: 1.2em;
+  text-align: center;
+  word-wrap: nowrap;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+#myInput {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.8rem 1.1rem 0.8rem;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.search input {
+  width: 100%;
+  font-size: 1rem;
+  padding: 1empx;
+  margin-bottom: 1em;
+}
+
+.search table {
+  border-collapse: collapse;
+  width: 100%;
+  word-wrap: nowrap;
+  font-size: 0.8em;
+}
+
+#myTable th,
+#myTable td {
+  border: 1px solid #ddd;
+  padding: 1em;
+  text-align: center;
+}
+
+#myTable th {
+  background-color: #f6f6f6;
+}
+
+#myTable tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+/* dashboard parameters */
+.user {
+  font-size: 1rem;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+}
+
+.user i {
+  font-size: 3em;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
+.user div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#username {
+  margin-bottom: 0.3em;
+  font-size: 1.2rem;
+}
+
+#post {
+  font-size: 1rem;
+}
+
+/* vehicle img */
+
+.veh-details {
+  justify-content: center;
+  font-size: 0.9em;
+  align-items: center;
+  box-shadow: 0 0 7px #1c1c1c50;
+  padding: 1em;
+}
+
+.veh-details img {
+  width: 40%;
+}
+
+.veh-details table {
   margin-left: 1em;
 }
 
-.vehicle-info {
-  width: 300px;
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  padding: 10px;
+.veh-details td {
+  padding-bottom: 0.5em;
+  padding-right: 0.2em;
 }
 
-.vehicle-atter {
+/* driver details and image */
+
+.driver-details {
+  box-shadow: 0 0 7px #1c1c1c50;
+  padding: 1em;
+}
+
+.driver-details img {
+  border-radius: 100%;
+  width: 20%;
+  border: 2px solid #ff3268;
+  padding: 1em;
+}
+
+.driver-details table {
+  margin-left: 1em;
+  font-size: 0.9em;
+}
+
+.driver-details td {
+  padding-bottom: 0.5em;
+  padding-right: 0.2em;
+}
+
+.driver-details td b {
+  text-transform: uppercase;
+}
+
+.title1 {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
-  padding: 10px;
-  margin-top: 10px;
 }
 
-p {
-  text-align: left;
+/* 
+.title1 img {
+  width: 1rem;
+  height: auto;
+  padding-right: 0;
+} */
+
+/* payload */
+.payload {
+  padding: 1em;
 }
 
-
-
-.fuel-info {
-  display: flex;
-  width: 100%;
-  padding: 10px;
-  justify-content: center;
-  flex-direction: column;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
+.payload table {
+  margin-left: 1em;
+  font-size: 0.9em;
 }
 
-.intake-temperature-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
+.payload td {
+  padding-bottom: 0.5em;
+  padding-right: 0.2em;
 }
 
-.rail-gauge-pressure-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
+.payload td b {
+  text-transform: uppercase;
 }
 
-
-.pressure-info,
-.temperature-info {
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  width: 100%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  padding: 20px;
+.veh-img2 img {
+  width: 98%;
 }
 
-.rpm-temp-battery .vehicle-atter {
-  background-color: rgba(0, 255, 255, 0.605);
-  border-radius: 5px;
-  width: 34vw;
-  max-width: 300px;
-  font-size: 1em;
+.t1 {
+  margin-top: 3rem;
+  margin-left: 2rem;
+  padding: 0.5rem;
 }
 
-.icon-cont {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 120px;
+.t3 {
+  margin-top: 4.5rem;
+  margin-left: 2rem;
+  padding: 0.5rem;
 }
 
-.rpm :hover {
-  background-color: #040d12;
+.t2 {
+  margin-top: 3rem;
+  margin-right: 2rem;
+  padding: 0.5rem;
 }
 
-#mymap {
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  padding: 10px;
-}
-
-.second-row-speed {
-  padding: 1rem;
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  width: 100%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-.throt-pos {
-  padding: 20px;
-  width: fit-content;
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  width: 100%;
-}
-
-.air-flow-rate {
-  padding: 20px;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-}
-
-.acceleration {
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.34);
-  backdrop-filter: blur(10px);
-  border-radius: 1rem;
-  padding-top: 1rem;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-}
-
-@media only screen and (max-width: 600px) {
-
-  .container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 0%;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    gap: 2em 2em;
-    grid-auto-flow: row;
-    grid-template-areas:
-      "header header header header"
-      "P1 P1 D1 D1"
-      "D2 D2 D3 D3"
-      "D4 D4 D6 D6"
-      "B1 B1 B1 B1"
-      "B2 B2 B2 B2"
-      "B3 B3 B3 B3"
-      "B4 B4 B4 B4"
-      "B5 B5 B5 B5"
-      "B6 B6 B6 B6"
-      "B7 B7 B7 B7";
-    font-size: 1vw;
-    height: 100vh;
-    flex-basis: 200;
-  }
-
-  .first-row-img img {
-    width: 45vw;
-  }
-
-  .vehicle-performance {
-    background: rgba(255, 255, 255, 0.34);
-    backdrop-filter: blur(10px);
-    border-radius: 0.5em;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    font-size: 3.5em;
-    padding: 1em;
-  }
-
-  .rpm-temp-battery .vehicle-atter {
-    border-radius: 5px;
-    width: 34vw;
-    max-width: 300px;
-    font-size: 1em;
-  }
-
-  .vehicle-table {
-    width: 100%;
-    height: 100%;
-    border-collapse: collapse;
-  }
-
-  .vehicle-table td {
-    padding: 1em;
-    text-align: left;
-    color: blue;
-  }
-
-  .vehicle-table h5 {
-    margin: 0;
-    font-weight: 700;
-    color: #333;
-  }
-
-  .fuel-info {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    background: rgba(255, 255, 255, 0.34);
-    backdrop-filter: blur(10px);
-    border-radius: 0.5rem;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    font-size: 5em;
-    padding: 0;
-
-  }
-
-  .fuel-gauge {
-    margin-bottom: -2em;
-  }
-
-  .second-row-speed {
-    padding: 1rem;
-    background: rgba(255, 255, 255, 0.34);
-    backdrop-filter: blur(10px);
-    border-radius: 0.5rem;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    justify-content: center;
-    flex-direction: column;
-  }
+.t4 {
+  margin-top: 4.5rem;
+  margin-right: 2rem;
+  padding: 0.5rem;
 }

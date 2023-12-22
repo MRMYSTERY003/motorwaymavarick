@@ -10,12 +10,14 @@
 }
 
 html {
-    font-size: 1vw;
+    font-size: 16px;
+    font-family: sans-serif;
 }
 
 body {
     font-family: sans-serif;
     overflow-x: hidden;
+    font-size: 1rem;
 }
 
 body::-webkit-scrollbar {
@@ -44,40 +46,67 @@ body::-webkit-scrollbar-thumb {
     top: 0;
     color: #fff;
     overflow-x: hidden;
+    width: 16%;
+    transition: 0.5s;
+}
+
+
+.sidebar .logo {
+    width: 12em;
+    margin: 1em 0em 1em 0.5em;
+    transition: 0.5s;
 }
 
 .sidebar ul {
     list-style: none;
     padding: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 10em;
 }
 
 .sidebar ul li {
-    text-align: center;
-    margin: 1em 0 0 1em;
-    text-align: left;
-    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+.sidebar ul li i {
+    font-size: 1.5em;
+    margin-left: 1em;
 }
 
 .sidebar ul li a {
     text-decoration: none;
     color: #fff;
     display: block;
-    padding: 10px 15px;
+    padding: 1.4em 1.2em;
     white-space: nowrap;
+    text-align: left;
+    margin-left: 1em;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.sidebar ul li:hover {
+    background-color: #555;
+    cursor: pointer;
+}
+
+.logocontainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .closebtn {
     display: none;
 }
 
-.sidebar ul li a.active {
-    background-color: #555;
+.sidebar ul li.active {
+    background-color: #ff326c;
 }
 
-.logo {
-    width: 14em;
-    margin: 1em;
-}
 
 .copyrights {
     padding: 10px 10px;
