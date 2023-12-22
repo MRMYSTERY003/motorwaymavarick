@@ -40,7 +40,7 @@ function parsedata(data, keys) {
       loc.push(loc_temp);
 
     }
-    if (data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["MAINTAIN"].toLowerCase() == "no need") {
+    if (data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["MAINTAIN"].toLowerCase() != "no need") {
       prop_c += 1;
     }
   }
@@ -74,7 +74,7 @@ function update_list(data) {
     const div = document.createElement("div");
     var anchorElement = document.createElement("a");
     anchorElement.className = "no-underline";
-    anchorElement.href = "vechicles.html?id=" + item.number;
+    anchorElement.href = "realtime.html?id=" + item.number;
     div.className = "list-info";
 
     // Adding Serial Number
