@@ -47,7 +47,6 @@ body::-webkit-scrollbar-thumb {
   transition: 0.5s;
 }
 
-
 .sidebar .logo {
   width: 12em;
   margin: 1em 0em 1em 0.5em;
@@ -71,7 +70,6 @@ body::-webkit-scrollbar-thumb {
 .sidebar ul li i {
   font-size: 1.5em;
   margin-left: 1em;
-
 }
 
 .sidebar ul li a {
@@ -151,7 +149,6 @@ canvas {
   width: 100% !important;
   height: auto !important;
 }
-
 
 .col {
   flex-direction: column;
@@ -435,7 +432,6 @@ h5 {
 
 /* search table */
 
-
 .search h2 {
   font-size: 1.2em;
   text-align: center;
@@ -540,6 +536,7 @@ h5 {
 .driver-details {
   box-shadow: 0 0 7px #1c1c1c50;
   padding: 1em;
+  /* width: 400px; */
 }
 
 .driver-details img {

@@ -16,7 +16,7 @@ class Map {
         }).addTo(this.map);
 
         this.iconOption = {
-            iconUrl: './lib/car.png',
+            iconUrl: './Images/t.png',
             iconSize: [50, 50]
         };
 

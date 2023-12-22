@@ -7,40 +7,31 @@
     <meta name="language" content="English">
     <meta name="description" content="Dashboard for the telematic system created by Motorway Mavericks.">
     <meta name="author" content="Motorway Mavericks">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/overview.css">
     <link rel="stylesheet" href="css/common.css">
-
     <link rel="icon" type="icon" sizes="32x32" href="Images/Favicon/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet@latest/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
-
     <title>DASHBOARD</title>
-
 </head>
 
 <body>
-
     <div class="container">
-
         <div class="header">
             <span class="hamburger" onclick="openNav()">&#9776;</span>
             <a href="overview.html">
                 <img src="Images/logo3.png" alt="Logo">
             </a>
         </div>
-
         <div class="sidebar" id="sidenav">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <a href="overview.html">
@@ -49,17 +40,13 @@
             <ul>
                 <li class="active"><i class="fa-solid fa-house"></i><a href="overview.html">OVERVIEW</a></li>
                 <li><i class="fa-solid fa-truck"></i><a id="realtime-tag" href="realtime.html">REALTIME DATA</a></li>
-
                 <li id="vehicle-tag"></li>
             </ul>
             <div class="copyrights">&copy; Motorway Mavericks 2023</div>
         </div>
-
-
         <div class="heading">
             <h2>Overview</h2>
         </div>
-
         <div class="useraccount">
             <div class="user">
                 <div class="user-logo"><img src="./lib/user.png" alt=""></div>
@@ -70,7 +57,6 @@
             </div>
             <a href="index.html"><button>Log out</button></a>
         </div>
-
         <div class="g1">
             <div class="vehicle-count">
                 <div class="vehicle-count-head">
@@ -82,7 +68,6 @@
                 </div>
             </div>
         </div>
-
         <div class="g2">
             <div class="vehicle-count">
                 <div class="vehicle-count-head">
@@ -94,7 +79,6 @@
                 </div>
             </div>
         </div>
-
         <div class="g3">
             <div class="vehicle-count">
                 <div class="vehicle-count-head">
@@ -106,7 +90,6 @@
                 </div>
             </div>
         </div>
-
         <div class="g4">
             <div class="vehicle-count">
                 <div class="vehicle-count-head">
@@ -118,21 +101,18 @@
                 </div>
             </div>
         </div>
-
         <div class="m1">
             <div class="vehicle-list-container">
                 <div class="vehicle-list" id="vehicle-list">
                 </div>
             </div>
         </div>
-
         <div class="m2">
             <div class="map-cont">
                 <div class="map" id="mymap"></div>
             </div>
         </div>
     </div>
-
     <script type="module" src="./js/overview.js"></script>
     <script>
         function openNav() {
@@ -143,7 +123,6 @@
             document.getElementById("sidenav").style.width = "0";
         }
     </script>
-
 </body>
 
 </html>

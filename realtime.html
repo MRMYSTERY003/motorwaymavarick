@@ -63,7 +63,7 @@
                         <th>Vehicle Model</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id = 'tb'>
                     <tr>
                         <td>FF456</td>
                         <td>CAT 77F</td>
@@ -75,7 +75,8 @@
 
         <div class="button df">
             <button>
-                <i class="fa-solid fa-chevron-left"></i>Vehicles Overview</button>
+                <a href="overview.html"><i class="fa-solid fa-chevron-left"></i>Vehicles Overview</a>
+            </button>
         </div>
         <!-- user data -->
         <div class="user">
@@ -178,9 +179,9 @@
             <canvas id="fuellevel"></canvas>
             <span>
                 <h4 id="fuel">0</h4>
-                <h6>Bar</h6>
+                <h6>°C</h6>
             </span>
-            <h5>Fuel <br>Pressure</h5>
+            <h5>IAT</h5>
         </div>
         <div class="trans-oil para">
             <canvas id="transoil"></canvas>
@@ -188,7 +189,7 @@
                 <h4 id="transoilnumber">0</h4>
                 <h6>°C</h6>
             </span>
-            <h5>Trans Oil <br>Temp</h5>
+            <h5>Break<br>Temp</h5>
         </div>
 
         <div class="egt para">
@@ -197,7 +198,7 @@
                 <h4 id="egt">0</h4>
                 <h6>°C</h6>
             </span>
-            <h5>EGT</h5>
+            <h5>MAP</h5>
             <br>
         </div>
         <div class="cool-oil para">
@@ -206,7 +207,7 @@
                 <h4 id="cool">0</h4>
                 <h6>°C</h6>
             </span>
-            <h5>Coolant <br>Temp</h5>
+            <h5>Oil <br>Temp</h5>
         </div>
 
         <!-- dial -->
