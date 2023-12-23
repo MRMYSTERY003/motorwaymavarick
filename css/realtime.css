@@ -47,7 +47,6 @@ body::-webkit-scrollbar-thumb {
   transition: 0.5s;
 }
 
-
 .sidebar .logo {
   width: 12em;
   margin: 1em 0em 1em 0.5em;
@@ -71,7 +70,6 @@ body::-webkit-scrollbar-thumb {
 .sidebar ul li i {
   font-size: 1.5em;
   margin-left: 1em;
-
 }
 
 .sidebar ul li a {
@@ -147,11 +145,16 @@ body::-webkit-scrollbar-thumb {
   align-items: center;
 }
 
+.para1 span {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
 canvas {
   width: 100% !important;
   height: auto !important;
 }
-
 
 .col {
   flex-direction: column;
@@ -171,6 +174,17 @@ canvas {
   box-shadow: 0 0 7px #1c1c1c50;
   height: 12rem;
   width: 12rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.para1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 8rem;
+  width: 8rem;
   margin: 0 auto;
   text-align: center;
 }
@@ -209,6 +223,7 @@ h5 {
 .dial {
   border-radius: 1rem;
   height: 7rem;
+  width: 12em;
 }
 
 .dial span {
@@ -234,17 +249,28 @@ h5 {
     "search button . . user user"
     "search veh-details veh-details driver-details driver-details payload"
     "search title1 title1 title1 title1 title1"
-    "search rpm fuel trans-oil egt cool-oil"
-    "search a1 a2 alternator fuel-rate oilpress"
+    "search rpm map oilpress temp temp"
+    "search d1 d1 d1 d1 d1"
     "search title2 title2 title2 title2 title2"
     "search hp1 hp2 hp3 hp4 hp5"
     "search title3 title3 title3 title3 title3"
-    "search pressure1 veh-img2 pressure2 . .";
+    "search pressure1 veh-img2 pressure2 . ."
+    "search title4 title4 title4 title4 title4"
+    "search graph1 graph1 graph1 graph1 graph1";
   font-size: 1rem;
   height: 100vh;
   gap: 1rem 1rem;
   padding-left: 5%;
   transition: 0.5s;
+}
+
+.graph1 {
+  grid-area: graph1;
+  width: 100%;
+}
+
+.title4 {
+  grid-area: titile4;
 }
 
 .search {
@@ -280,40 +306,30 @@ h5 {
   grid-area: rpm;
 }
 
+.temp {
+  grid-area: temp;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "iat cool-oil trans-oil";
+
+}
+
 .trans-oil {
   grid-area: trans-oil;
 }
 
-.fuel {
-  grid-area: fuel;
-}
-
-.egt {
-  grid-area: egt;
-}
-
-.a1 {
-  grid-area: a1;
-}
-
-.torque {
-  grid-area: a2;
+.iat {
+  grid-area: iat;
 }
 
 .cool-oil {
   grid-area: cool-oil;
 }
 
-.alternator {
-  grid-area: alternator;
-}
-
-.fuel-rate {
-  grid-area: fuel-rate;
-}
-
-.oilpress {
-  grid-area: oilpress;
+.map {
+  grid-area: map;
 }
 
 .payload {
@@ -352,49 +368,10 @@ h5 {
   grid-area: veh-img2;
 }
 
-.b1 {
-  grid-area: b1;
-}
-
-.b2 {
-  grid-area: b2;
-}
-
-.b3 {
-  grid-area: b3;
-}
-
-.b4 {
-  grid-area: b4;
-}
-
 .title4 {
   grid-area: title4;
 }
 
-.v1 {
-  grid-area: v1;
-}
-
-.v2 {
-  grid-area: v2;
-}
-
-.v3 {
-  grid-area: v3;
-}
-
-.v5 {
-  grid-area: v5;
-}
-
-.v6 {
-  grid-area: v6;
-}
-
-.temp {
-  grid-area: temp;
-}
 
 .pressure1 {
   grid-area: pressure1;
@@ -402,6 +379,41 @@ h5 {
 
 .pressure2 {
   grid-area: pressure2;
+}
+
+.d1 {
+  grid-area: d1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "a1 a2 a3 alternator fuel-rate";
+  gap: 1rem 1rem;
+  margin-top: 1rem;
+}
+
+.fuel-rate {
+  grid-area: fuel-rate;
+}
+
+.a3 {
+  grid-area: a3;
+}
+
+.torque {
+  grid-area: a2;
+}
+
+.a1 {
+  grid-area: a1;
+}
+
+.alternator {
+  grid-area: alternator;
+}
+
+.oilpress {
+  grid-area: oilpress;
 }
 
 /* button */
@@ -434,7 +446,6 @@ h5 {
 }
 
 /* search table */
-
 
 .search h2 {
   font-size: 1.2em;
@@ -540,6 +551,7 @@ h5 {
 .driver-details {
   box-shadow: 0 0 7px #1c1c1c50;
   padding: 1em;
+  /* width: 400px; */
 }
 
 .driver-details img {

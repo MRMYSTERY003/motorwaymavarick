@@ -22,19 +22,25 @@ function parsedata(data, keys) {
     var loc_temp = {};
     temp["number"] = keys[i];
     console.log(keys)
-    temp["status"] = data["VECHICLES"][keys[i]]["STATUS"];
-    loc_temp["lat"] = data["VECHICLES"][keys[i]]["GPS"]["LAT"];
-    loc_temp["long"] = data["VECHICLES"][keys[i]]["GPS"]["LONG"];
+    temp["status"] = data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["STATUS"];
+
+    // temp["status"] = data["NEW_VEHICLES"][keys[i]]["STATUS"];
+    // loc_temp["lat"] = data["NEW_VEHICLES"][keys[i]]["GPS"]["LAT"];
+    // loc_temp["long"] = data["NEW_VEHICLES"][keys[i]]["GPS"]["LONG"];
     list.push(temp);
-    loc.push(loc_temp);
+    // loc.push(loc_temp);
+    console.log(data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["MAINTAIN"])
 
-
-    if (data["VECHICLES"][keys[i]]["STATUS"].toLowerCase() == "offline") {
+    if (data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["STATUS"].toLowerCase() == "offline") {
       offline += 1;
     } else {
       online += 1;
+      loc_temp['lat'] = data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["GPS"]["LAT"]
+      loc_temp['long'] = data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["GPS"]["LONG"];
+      loc.push(loc_temp);
+
     }
-    if (data["VECHICLES"][keys[i]]["INFO"]["MAINTAINANCE"].toLowerCase() == "No Need") {
+    if (data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["MAINTAIN"].toLowerCase() == "no need") {
       prop_c += 1;
     }
   }
@@ -68,7 +74,7 @@ function update_list(data) {
     const div = document.createElement("div");
     var anchorElement = document.createElement("a");
     anchorElement.className = "no-underline";
-    anchorElement.href = "vechicles.html?id=" + item.number;
+    anchorElement.href = "realtime.html?id=" + item.number;
     div.className = "list-info";
 
     // Adding Serial Number
@@ -96,9 +102,9 @@ function update_list(data) {
 onValue(ref(database, '/'), (snapshot) => {
   const data = snapshot.val();
   console.log(data)
-  const keys = Object.keys(data["VECHICLES"]);
+  const keys = Object.keys(data["NEW_VEHICLES"]);
   link.href = "realtime.html?id=" + keys[0];
-  link2.href = "vechicles.html?id=" + keys[0];
+
 
   var count_res = parsedata(data, keys);
   offline_vec.innerText = count_res["offline"];

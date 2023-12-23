@@ -2,7 +2,7 @@
 class Map {
     constructor(id) {
 
-        this.map = L.map(id).setView([12.924846, 80.092893], 10);
+        this.map = L.map(id).setView([11.564610, 79.504220], 14);
 
         this.title = "test";
         this.list = [];
@@ -16,7 +16,7 @@ class Map {
         }).addTo(this.map);
 
         this.iconOption = {
-            iconUrl: './lib/car.png',
+            iconUrl: './Images/t.png',
             iconSize: [50, 50]
         };
 
@@ -25,10 +25,10 @@ class Map {
 
     }
 
-    set(lat,long){
+    set(lat, long) {
         this.marker.setLatLng([lat, long]);
 
-            // this.map.flyTo([lat, long], zoom)
+        // this.map.flyTo([lat, long], zoom)
 
     }
 
@@ -40,7 +40,7 @@ class Map {
     }
 
     locate(lat, long, zoom) {
-        
+
         this.map.flyTo([lat, long], zoom);
 
     }
@@ -52,8 +52,8 @@ class Map {
 
     }
 
-    deletemarker(){
-        this.list.forEach((ele) =>{
+    deletemarker() {
+        this.list.forEach((ele) => {
             ele.remove();
         })
         this.list = [];

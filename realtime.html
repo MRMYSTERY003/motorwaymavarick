@@ -9,7 +9,7 @@
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
+    <script src="https://cdn.anychart.com/releases/8.12.0/js/anychart-base.min.js" type="text/javascript"></script>
     <title>Motorway Mavericks</title>
 
     <link rel="stylesheet" href="./css/realtime.css">
@@ -18,6 +18,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
 
 </head>
 
@@ -39,7 +43,8 @@
         </a>
         <ul>
             <li><i class="fa-solid fa-house"></i><a href="overview.html">OVERVIEW</a></li>
-            <li class="active"><i class="fa-solid fa-truck"></i><a id="realtime-tag" href="realtime.html">VEHICLES</a>
+            <li class="active"><i class="fa-solid fa-truck"></i><a id="realtime-tag" href="realtime.html">REALTIME
+                    DATA</a>
             </li>
             <!-- <li><i class="fa-regular fa-id-card"></i><a href="driver.html">DRIVERS</a></li> -->
         </ul>
@@ -63,7 +68,7 @@
                         <th>Vehicle Model</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id='tb'>
                     <tr>
                         <td>FF456</td>
                         <td>CAT 77F</td>
@@ -75,14 +80,15 @@
 
         <div class="button df">
             <button>
-                <i class="fa-solid fa-chevron-left"></i>Vehicles Overview</button>
+                <a href="overview.html"><i class="fa-solid fa-chevron-left"></i>Vehicles Overview</a>
+            </button>
         </div>
         <!-- user data -->
         <div class="user">
             <i class="fa-solid fa-user"></i>
             <div>
                 <p id="username">Sriram</p>
-                <p id="post">Senior Engineer</p>
+                <p id="post">Manager</p>
             </div>
         </div>
 
@@ -95,15 +101,15 @@
                 <table>
                     <tr>
                         <td><b>VEHICLE ID:</b></td>
-                        <td id="vehid">FF456</td>
+                        <td id="vehid">-</td>
                     </tr>
                     <tr>
                         <td><b>MODEL NAME:</b></td>
-                        <td id="modelname">CAT 77F</td>
+                        <td id="modelname">-</td>
                     </tr>
                     <tr>
                         <td><b>STATUS:</b></td>
-                        <td id="status">Offline</td>
+                        <td id="status">-</td>
                     </tr>
                 </table>
             </div>
@@ -118,19 +124,19 @@
                 <table>
                     <tr>
                         <td><b>Name:</b></td>
-                        <td id="drivername">John</td>
+                        <td id="drivername">-</td>
                     </tr>
                     <tr>
                         <td><b>ID:</b></td>
-                        <td id="driverid">CNL41235</td>
+                        <td id="driverid">-</td>
                     </tr>
                     <tr>
                         <td><b>Age:</b></td>
-                        <td id="driverage">42 Years</td>
+                        <td id="driverage">-</td>
                     </tr>
                     <tr>
                         <td><b>Experience:</b></td>
-                        <td id="driverexp">18 Years</td>
+                        <td id="driverexp">-</td>
                     </tr>
                 </table>
             </div>
@@ -174,83 +180,99 @@
             <h5>RPM</h5>
             <br>
         </div>
-        <div class="fuel para">
-            <canvas id="fuellevel"></canvas>
-            <span>
-                <h4 id="fuel">0</h4>
-                <h6>Bar</h6>
-            </span>
-            <h5>Fuel <br>Pressure</h5>
-        </div>
-        <div class="trans-oil para">
-            <canvas id="transoil"></canvas>
-            <span>
-                <h4 id="transoilnumber">0</h4>
-                <h6>°C</h6>
-            </span>
-            <h5>Trans Oil <br>Temp</h5>
-        </div>
-
-        <div class="egt para">
-            <canvas id="egtlevel"></canvas>
-            <span>
-                <h4 id="egt">0</h4>
-                <h6>°C</h6>
-            </span>
-            <h5>EGT</h5>
-            <br>
-        </div>
-        <div class="cool-oil para">
-            <canvas id="coollevel"></canvas>
-            <span>
-                <h4 id="cool">0</h4>
-                <h6>°C</h6>
-            </span>
-            <h5>Coolant <br>Temp</h5>
-        </div>
-
-        <!-- dial -->
-        <div class="alternator para dial">
-
-            <span>
-                <h4 id="alternator">0</h4>
-                <h6>V</h6>
-            </span>
-            <h5>Alternator <br>Voltage</h5>
-        </div>
-        <div class="fuel-rate para dial">
-
-            <span>
-                <h4 id="fuelrate">0</h4>
-                <h6>%</h6>
-            </span>
-            <h5>fuel <br>efficiency</h5>
-        </div>
-        <div class="oilpress para dial">
-
+        <div class="oilpress para">
+            <canvas id="oilpl"></canvas>
             <span>
                 <h4 id="oilpress">0</h4>
-                <h6>Bar</h6>
+                <h6>Psi</h6>
             </span>
             <h5>Oil <br>Pressure</h5>
         </div>
-        <div class="torque para dial">
-            <span>
-                <h4 id="torque">0</h4>
-                <h6>Kg/m</h6>
-            </span>
 
-            <h5>Torque</h5>
+
+        <div class="map para">
+            <canvas id="maplevel"></canvas>
+            <span>
+                <h4 id="map">0</h4>
+                <h6>kpa</h6>
+            </span>
+            <h5>MAP</h5>
             <br>
         </div>
+        <div class="temp">
+            <div class="iat para1">
+                <canvas id=""></canvas>
+                <span>
+                    <h4 id="iat">0</h4>
+                    <h6>°C</h6>
+                </span>
+                <h5>IAT</h5>
+                <br>
+            </div>
+            <div class="cool-oil para1">
+                <canvas id="cool"></canvas>
+                <span>
+                    <h4 id="cool1">-</h4>
+                    <h6>°C</h6>
+                </span>
+                <h5> Coolant<br>Temp</h5>
+            </div>
+            <div class="trans-oil para1">
+                <canvas id="cool"></canvas>
+                <span>
+                    <h4 id="transoil">0</h4>
+                    <h6>°C</h6>
+                </span>
+                <h5>Transmission <br>Oil temp</h5>
+            </div>
+        </div>
 
-        <div class="a1 para dial">
 
-            <span>
-                <h4 id="load">0</h4>
-                <h6>Kg/m</h6>
-            </span>
-            <h5>Engine <br> Load</h5>
+        <!-- dial -->
+        <div class="d1">
+            <div class="alternator para dial">
+
+                <span>
+                    <h4 id="alternator">0</h4>
+                    <h6>V</h6>
+                </span>
+                <h5>Alternator <br>Voltage</h5>
+            </div>
+            <div class="a3 para dial">
+
+                <span>
+                    <h4 id="power">0</h4>
+                    <h6>Kw</h6>
+                </span>
+                <h5>Engine <br>Power</h5>
+            </div>
+            <div class="fuel-rate para dial">
+
+                <span>
+                    <h4 id="fuelrate">0</h4>
+                    <h6>L/min</h6>
+                </span>
+                <h5>fuel <br>efficiency</h5>
+            </div>
+
+            <div class="torque para dial">
+                <span>
+                    <h4 id="torque">0</h4>
+                    <h6>Nm</h6>
+                </span>
+
+                <h5>Torque</h5>
+                <br>
+            </div>
+
+            <div class="a1 para dial">
+
+                <span>
+                    <h4 id="load">0</h4>
+                    <h6>%</h6>
+                </span>
+                <h5>Engine <br> Load</h5>
+            </div>
         </div>
 
 
@@ -265,7 +287,7 @@
 
             <span>
                 <h4 id="hp1">0</h4>
-                <h6>Bar</h6>
+                <h6>Psi</h6>
             </span>
             <h5>Hydraulic <br>system - 1</h5>
         </div>
@@ -273,7 +295,7 @@
 
             <span>
                 <h4 id="hp2">0</h4>
-                <h6>Bar</h6>
+                <h6>Psi</h6>
             </span>
 
             <h5>Hydraulic <br>system - 2</h5>
@@ -282,16 +304,14 @@
 
             <span>
                 <h4 id="hp3">0</h4>
-                <h6>Bar</h6>
+                <h6>Psi</h6>
             </span>
             <h5>Hydraulic <br>system - 3</h5>
         </div>
         <div class="hp4 para dial">
-
-
             <span>
                 <h4 id="hp4">0</h4>
-                <h6>Bar</h6>
+                <h6>Psi</h6>
             </span>
             <h5>Hydraulic <br>system - 4</h5>
         </div>
@@ -299,12 +319,12 @@
 
             <span>
                 <h4 id="hp5">0</h4>
-                <h6>Bar</h6>
+                <h6>Psi</h6>
             </span>
             <h5>Hydraulic <br>system - 5</h5>
         </div>
         <div class="title3">
-            <h3>Tire and Brake Parameters</h3>
+            <h3>Tire Parameters</h3>
         </div>
         <div class="veh-img2 df">
             <img src="Images/Truck topview.png" alt="">
@@ -314,19 +334,19 @@
                 <h5>Tire- 1</h5>
                 <span>Tire Pressure:</span>
                 <span id="t1press">0</span>
-                <span>Bar</span>
+                <span>Psi</span>
             </div>
             <div class="t3 c">
                 <h5>Tire- 3</h5>
                 <span>Tire Pressure:</span>
                 <span id="t3press">0</span>
-                <span>Bar</span>
+                <span>Psi</span>
                 <br>
                 <br>
                 <h5>Tire- 4</h5>
                 <span>Tire Pressure:</span>
                 <span id="t4press">0</span>
-                <span>Bar</span>
+                <span>Psi</span>
             </div>
         </div>
         <div class="pressure2">
@@ -334,20 +354,26 @@
                 <h5>Tire- 2</h5>
                 <span>Tire Pressure:</span>
                 <span id="t2press">0</span>
-                <span>Bar</span>
+                <span>Psi</span>
             </div>
             <div class="t4 c">
                 <h5>Tire- 5</h5>
                 <span>Tire Pressure:</span>
                 <span id="t5press">0</span>
-                <span>Bar</span>
+                <span>Psi</span>
                 <br>
                 <br>
                 <h5>Tire- 6</h5>
                 <span>Tire Pressure:</span>
                 <span id="t6press">0</span>
-                <span>Bar</span>
+                <span>Psi</span>
             </div>
+        </div>
+        <div class="title4">
+            <h3>Acceleration logs</h3>
+        </div>
+        <div id="acceleration">
+
         </div>
     </div>
 
@@ -362,9 +388,8 @@
 
     </script>
     <script src="./js/gauge.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gauge.js/1.3.5/gauge.min.js"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script> -->
     <script type="module" src="./js/realtime.js"></script>
     <script src="./js/search.js"></script>
 
