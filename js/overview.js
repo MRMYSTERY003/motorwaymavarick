@@ -31,13 +31,15 @@ function parsedata(data, keys) {
     // loc.push(loc_temp);
     console.log(data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["MAINTAIN"])
 
+      loc_temp['lat'] = data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["GPS"]["LAT"]
+      loc_temp['long'] = data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["GPS"]["LONG"];
+      loc.push(loc_temp);
+
     if (data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["STATUS"].toLowerCase() == "offline") {
       offline += 1;
     } else {
       online += 1;
-      loc_temp['lat'] = data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["GPS"]["LAT"]
-      loc_temp['long'] = data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["GPS"]["LONG"];
-      loc.push(loc_temp);
+
 
     }
     if (data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["MAINTAIN"].toLowerCase() != "no need") {
