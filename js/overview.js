@@ -40,7 +40,7 @@ function parsedata(data, keys) {
       loc.push(loc_temp);
 
     }
-    if (data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["MAINTAIN"].toLowerCase() == "no need") {
+    if (data["NEW_VEHICLES"][keys[i]]["VEHICLE_DETAILS"]["MAINTAIN"].toLowerCase() != "no need") {
       prop_c += 1;
     }
   }
