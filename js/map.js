@@ -21,7 +21,7 @@ class Map {
         };
 
         this.ourCustomIcon = L.icon(this.iconOption);
-        this.marker = L.marker([51.5, -0.09], { icon: this.ourCustomIcon }).addTo(this.map);
+        #this.marker = L.marker([51.5, -0.09], { icon: this.ourCustomIcon }).addTo(this.map);
 
     }
 
